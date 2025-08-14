@@ -3949,22 +3949,16 @@ input, select, textarea {
 
 .feedback-content {
     padding-left: 15px; /* Additional spacing from quote icon */
-    border-left: 3px solid rgba(255,255,255,0.1);
-    transition: border-color 0.3s ease;
 }
 
-.testimonial-card:hover .feedback-content {
-    border-left-color: #4cc9f0;
-}
-
-.testimonial-content blockquote {
-    font-style: normal;
+.testimonial-text {
+    font-style: italic;
     margin: 0 0 1.5rem 0;
     padding: 0;
     font-size: 1.1rem;
     line-height: 1.7;
     color: rgba(255,255,255,0.9);
-    text-indent: -0.5em; /* Adjust text alignment with quote mark */
+    position: relative;
 }
 
 .testimonial-author h4 {
