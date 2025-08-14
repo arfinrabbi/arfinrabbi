@@ -2231,6 +2231,7 @@ input, select, textarea {
     display: flex;
     gap: 3em;
     width: 100%;
+    position: relative;
 }
 
 /* Left Column - Wider (60% width) */
@@ -2238,6 +2239,30 @@ input, select, textarea {
     flex: 3; /* Takes 3 parts of available space */
     max-width: 60%;
     padding-right: 2em;
+}
+
+/* Vertical Separator */
+.contact-separator {
+    width: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin: 0 1em;
+    align-self: stretch;
+    position: relative;
+}
+
+/* Optional gradient effect for separator */
+.contact-separator::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+        transparent 0%, 
+        rgba(0,0,0,0.1) 20%, 
+        rgba(0,0,0,0.1) 80%, 
+        transparent 100%);
 }
 
 /* Right Column - Centered (40% width) */
@@ -2272,16 +2297,25 @@ input, select, textarea {
     padding: 0.75em;
     border: 1px solid #ddd;
     border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+    border-color: #2ecc71;
+    outline: none;
 }
 
 #contactForm textarea {
     min-height: 150px;
+    resize: vertical;
 }
 
 .error-message {
     color: #e74c3c;
     display: none;
     margin-top: 0.5em;
+    font-size: 0.85em;
 }
 
 .form-alert {
@@ -2289,16 +2323,19 @@ input, select, textarea {
     padding: 0.75em;
     border-radius: 4px;
     display: none;
+    animation: fadeIn 0.3s ease-out;
 }
 
 #formSuccess {
     background: #d4edda;
     color: #155724;
+    border: 1px solid #c3e6cb;
 }
 
 #formError {
     background: #f8d7da;
     color: #721c24;
+    border: 1px solid #f5c6cb;
 }
 
 /* Calendly Button */
@@ -2306,6 +2343,12 @@ input, select, textarea {
     margin-bottom: 2em;
     width: 100%;
     text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.calendly-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 /* Social Links */
@@ -2316,6 +2359,20 @@ input, select, textarea {
 .social-section .icons {
     justify-content: center;
     margin-top: 1em;
+}
+
+.social-section .icons a {
+    transition: transform 0.2s ease;
+}
+
+.social-section .icons a:hover {
+    transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Responsive */
@@ -2331,6 +2388,20 @@ input, select, textarea {
         padding-right: 0;
     }
     
+    .contact-separator {
+        width: 100%;
+        height: 1px;
+        margin: 2em 0;
+    }
+    
+    .contact-separator::before {
+        background: linear-gradient(to right, 
+            transparent 0%, 
+            rgba(0,0,0,0.1) 20%, 
+            rgba(0,0,0,0.1) 80%, 
+            transparent 100%);
+    }
+    
     .contact-links-inner {
         max-width: 100%;
     }
@@ -2339,6 +2410,22 @@ input, select, textarea {
         max-width: 300px;
         margin-left: auto;
         margin-right: auto;
+    }
+}
+
+/* Small devices (phones) */
+@media (max-width: 480px) {
+    .wrapper.style1 {
+        padding: 2em 0;
+    }
+    
+    #contactForm input,
+    #contactForm textarea {
+        padding: 0.5em;
+    }
+    
+    .calendly-btn {
+        margin-bottom: 1.5em;
     }
 }
 
@@ -3880,5 +3967,6 @@ input, select, textarea {
         animation-delay: 0.1s !important; 
     }
 }
+
 
 
