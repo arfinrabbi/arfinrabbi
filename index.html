@@ -200,15 +200,40 @@
     <div class="inner">
         <h2>Get in touch</h2>
         <p>Don't hesitate! Reach out for a free consultation.</p>
-        <div class="split style1">
-            <section style="width: 100%; text-align: center; border-right: none;">
-                <!-- Calendly link button -->
-                <a href="https://calendly.com/arfinrabbi/30min" class="button large" target="_blank" style="margin-bottom: 2em;">Schedule a Meeting</a>
+        <div class="split style1 contact-split">
+            <!-- Left Column - Contact Form -->
+            <section class="contact-form">
+                <form id="contactForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                    <div class="fields">
+                        <div class="field half">
+                            <label for="name">Name *</label>
+                            <input type="text" name="name" id="name" required>
+                        </div>
+                        <div class="field half">
+                            <label for="email">Email *</label>
+                            <input type="email" name="email" id="email" required>
+                            <small class="error-message" id="emailError">Please enter a valid email address</small>
+                        </div>
+                        <div class="field">
+                            <label for="message">Message *</label>
+                            <textarea name="message" id="message" rows="5" required></textarea>
+                        </div>
+                    </div>
+                    <ul class="actions">
+                        <li><button type="submit" class="button submit">Send Message</button></li>
+                    </ul>
+                    <div class="form-alert" id="formSuccess">Message sent successfully!</div>
+                    <div class="form-alert" id="formError">There was an error sending your message. Please try again.</div>
+                </form>
+            </section>
+            
+            <!-- Right Column - Calendly & Social -->
+            <section class="contact-links">
+                <a href="https://calendly.com/arfinrabbi/30min" class="button large calendly-btn" target="_blank">Schedule a Meeting</a>
                 
-                <!-- Centered social links -->
-                <div style="margin-top: 2em;">
+                <div class="social-section">
                     <h3>Connect With Me</h3>
-                    <ul class="icons" style="justify-content: center; display: flex;">
+                    <ul class="icons">
                         <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
                         <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
                         <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
@@ -242,6 +267,7 @@
 	</body>
 
 </html>
+
 
 
 
