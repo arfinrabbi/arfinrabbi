@@ -3920,7 +3920,7 @@ input, select, textarea {
 #testimonials .subtitle {
     color: rgba(255,255,255,0.7);
     margin-bottom: 3rem;
-    text-align: center;
+    text-align: left;
     font-size: 1.1rem;
 }
 
@@ -4018,3 +4018,4 @@ input, select, textarea {
         animation-delay: 0.1s !important; 
     }
 }
+
