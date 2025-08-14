@@ -3969,7 +3969,7 @@ input, select, textarea {
     font-size: 1.1rem;
     line-height: 1.7;
     color: rgba(255,255,255,0.9);
-	left: -10px;
+	left: 10px;
     z-index: 1;
 }
 
@@ -4013,4 +4013,5 @@ input, select, textarea {
         animation-delay: 0.1s !important; 
     }
 }
+
 
