@@ -2222,133 +2222,128 @@ input, select, textarea {
 		}
 
 /* ==========================================================================
-   Contact Section - Final Compact Version
+   Contact Section - Fixed Version
    ========================================================================== */
 
 .wrapper.style1 {
-    background: #f5f5f5;
-    padding: 1.5em 0; /* Further reduced top/bottom padding */
+    padding: 2em 0; /* Reduced padding */
 }
 
-.contact-container {
+/* Contact Container */
+.split.style1 {
     display: flex;
-    width: 100%;
-    position: relative;
+    gap: 2em;
 }
 
-/* Left Column - Form (60%) */
-.contact-form-container {
-    flex: 0 0 60%;
+/* Left Column - Form */
+.split.style1 > :first-child {
+    width: 60%;
     padding-right: 2em;
     position: relative;
 }
 
-/* Vertical Separator Line */
-.contact-form-container::after {
-    content: '';
-    position: absolute;
-    right: 1em;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 70%;
-    width: 1px;
-    background: rgba(0,0,0,0.1); /* More subtle line */
-}
-
-/* Right Column - Links (40%) */
-.contact-links-container {
-    flex: 0 0 40%;
-    padding-left: 2em;
+/* Right Column - Links */
+.split.style1 > :last-child {
+    width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.contact-links-inner {
-    width: 100%;
-    max-width: 260px; /* Further reduced */
-    text-align: center;
-}
-
-/* Form Styles - Final Adjustments */
+/* Form Styles - Fixed */
 #contactForm .field {
-    margin-bottom: 0.8em; /* More compact */
+    margin-bottom: 1em;
 }
 
 #contactForm label {
     display: block;
-    margin-bottom: 0.25em;
-    font-weight: 600;
-    font-size: 0.85em; /* Smaller labels */
-    color: #555; /* Darker for better readability */
+    margin-bottom: 0.3em;
+    font-size: 0.8em; /* Smaller labels */
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: bold;
 }
 
 #contactForm input,
 #contactForm textarea {
     width: 100%;
-    padding: 0.45em 0.6em; /* Taller but narrower padding */
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 0.9em;
+    padding: 0.5em 0.75em;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
     background: transparent; /* Transparent background */
-    height: 2em; /* Fixed height for inputs */
-    line-height: 1.3;
-    transition: all 0.2s ease;
+    color: white;
+    font-size: 0.9em;
+    height: 2.5em; /* Fixed height */
+    transition: all 0.3s ease;
 }
 
 #contactForm textarea {
     min-height: 100px; /* Reduced height */
-    height: auto; /* Allows growing */
+    height: auto;
     resize: vertical;
-    line-height: 1.4;
 }
 
-/* Fixed Calendly Button */
+/* Calendly Button - Fixed */
 .calendly-btn {
     display: inline-block;
-    margin-bottom: 1.5em;
-    padding: 0.65em 1em; /* Better proportions */
-    width: auto; /* Not full width */
-    min-width: 200px; /* Minimum width */
-    font-size: 0.9em;
-    white-space: nowrap; /* Prevent wrapping */
+    padding: 0.75em 1.5em;
+    background: #ffffff;
+    color: #312450 !important;
+    border-radius: 3em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.7em;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    box-sizing: border-box;
-    text-align: center;
-    line-height: 1.3;
+    max-width: 100%;
 }
 
-/* ==========================================================================
-   Responsive Adjustments
-   ========================================================================== */
+.calendly-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
 
+/* Social Links */
+.social-section {
+    margin-top: 2em;
+}
+
+.social-section .icons {
+    justify-content: center;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 980px) {
-    .contact-container {
+    .split.style1 {
         flex-direction: column;
-        gap: 0.5em;
     }
     
-    .contact-form-container {
-        padding-bottom: 1em;
-        margin-bottom: 1em;
+    .split.style1 > :first-child,
+    .split.style1 > :last-child {
+        width: 100%;
+        padding: 0;
+    }
+    
+    .split.style1 > :first-child {
+        padding-bottom: 2em;
+        margin-bottom: 2em;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
     
     .calendly-btn {
         width: 100%;
-        max-width: 220px;
-        padding: 0.7em;
+        max-width: 250px;
     }
 }
 
 @media (max-width: 480px) {
-    .wrapper.style1 {
-        padding: 1em 0;
-    }
-    
     #contactForm input {
-        height: 1.8em; /* Slightly shorter on mobile */
+        height: 2.2em;
     }
     
     #contactForm textarea {
@@ -3894,6 +3889,7 @@ input, select, textarea {
         animation-delay: 0.1s !important; 
     }
 }
+
 
 
 
