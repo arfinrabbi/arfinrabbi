@@ -3921,12 +3921,14 @@ input, select, textarea {
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     margin-bottom: 2rem;
+    text-align: left;
 }
 
 .testimonial-content {
     margin-bottom: 1.5rem;
     color: #555;
     position: relative;
+    padding-left: 2rem; /* Added left padding */
 }
 
 .testimonial-content blockquote {
@@ -3943,7 +3945,7 @@ input, select, textarea {
     font-size: 3rem;
     color: #eee;
     position: absolute;
-    left: -1.5rem;
+    left: -1rem;
     top: -1rem;
     line-height: 1;
     z-index: 0;
@@ -3952,24 +3954,32 @@ input, select, textarea {
 .testimonial-author {
     display: flex;
     align-items: center;
+    padding-left: 2rem; /* Align with content */
 }
 
 .author-info h4 {
     margin: 0 0 0.3rem 0;
     color: #333;
     font-size: 1.1rem;
+    font-weight: 600; /* Slightly bolder */
 }
 
 .author-info span {
     font-size: 0.9rem;
     color: #777;
     display: block;
+    font-style: italic;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .testimonial-card {
         padding: 1.5rem;
+    }
+    
+    .testimonial-content,
+    .testimonial-author {
+        padding-left: 1.5rem;
     }
     
     .testimonial-content blockquote {
