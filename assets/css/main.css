@@ -3911,16 +3911,19 @@ input, select, textarea {
 
 /* Testimonial Section Styles */
 #testimonials {
-    padding: 3rem 0 5rem; /* Reduced top padding from 5rem to 3rem */
+    padding: 3rem 0 5rem;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     color: white;
 }
 
-/* Rest of the CSS remains exactly the same */
+.testimonials-header {
+    text-align: left;
+    margin-bottom: 3rem;
+}
+
 #testimonials .subtitle {
     color: rgba(255,255,255,0.7);
-    margin-bottom: 3rem;
-    text-align: left;
+    margin-top: 0.5rem;
     font-size: 1.1rem;
 }
 
@@ -4018,4 +4021,3 @@ input, select, textarea {
         animation-delay: 0.1s !important; 
     }
 }
-
