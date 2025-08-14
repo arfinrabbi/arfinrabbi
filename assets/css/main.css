@@ -3926,51 +3926,45 @@ input, select, textarea {
 .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 .testimonial-card {
-    padding: 2rem;
     position: relative;
-    border-left: 3px solid rgba(255,255,255,0.1);
-    opacity: 0;
-    animation: fadeInUp 0.6s ease forwards;
-}
-
-.testimonial-card:nth-child(1) { animation-delay: 0.1s; }
-.testimonial-card:nth-child(2) { animation-delay: 0.2s; }
-.testimonial-card:nth-child(3) { animation-delay: 0.3s; }
-.testimonial-card:nth-child(4) { animation-delay: 0.4s; }
-
-.testimonial-card:hover {
-    border-left-color: #4cc9f0;
 }
 
 .testimonial-content {
     position: relative;
-    margin-bottom: 1.5rem;
+    padding-left: 3rem; /* Space for quote icon */
 }
 
 .quote-icon {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     fill: rgba(255,255,255,0.1);
     position: absolute;
-    left: -15px;
-    top: -15px;
-    z-index: 0;
+    left: 0;
+    top: 0;
+}
+
+.feedback-content {
+    margin-left: 1.5rem; /* Pushes content to the right */
+    padding: 1.5rem;
+    border-left: 3px solid rgba(255,255,255,0.1);
+    transition: border-color 0.3s ease;
+}
+
+.testimonial-card:hover .feedback-content {
+    border-left-color: #4cc9f0;
 }
 
 .testimonial-content blockquote {
     font-style: normal;
-    margin: 0;
+    margin: 0 0 1.5rem 0;
     padding: 0;
-    position: relative;
     font-size: 1.1rem;
     line-height: 1.7;
     color: rgba(255,255,255,0.9);
-	left: 100px;
-    z-index: 1;
 }
 
 .testimonial-author h4 {
@@ -3988,6 +3982,16 @@ input, select, textarea {
 }
 
 /* CSS Animations */
+.testimonial-card {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.testimonial-card:nth-child(1) { animation-delay: 0.1s; }
+.testimonial-card:nth-child(2) { animation-delay: 0.2s; }
+.testimonial-card:nth-child(3) { animation-delay: 0.3s; }
+.testimonial-card:nth-child(4) { animation-delay: 0.4s; }
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -3999,20 +4003,23 @@ input, select, textarea {
     }
 }
 
-/* Responsive - switches to 1 column on mobile */
+/* Responsive */
 @media (max-width: 768px) {
     .testimonials-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
     
-    .testimonial-card {
-        padding: 1.5rem;
+    .testimonial-content {
+        padding-left: 2rem;
+    }
+    
+    .feedback-content {
+        margin-left: 1rem;
+        padding: 1rem;
     }
     
     .testimonial-card:nth-child(n) { 
         animation-delay: 0.1s !important; 
     }
 }
-
-
-
