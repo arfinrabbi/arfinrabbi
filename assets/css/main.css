@@ -3911,62 +3911,98 @@ input, select, textarea {
 
 /* Testimonial Section Styles */
 #testimonials {
-    background: #f9f9f9;
-    padding: 4rem 0;
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
 }
 
+#testimonials .subtitle {
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 3rem;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial-card {
+    padding: 2rem;
+    position: relative;
+    transition: all 0.4s ease;
+    border-left: 3px solid rgba(255,255,255,0.1);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    border-left-color: #4cc9f0;
+}
 
 .testimonial-content {
-    margin-bottom: 1.5rem;
-    color: #555;
     position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.quote-icon {
+    width: 40px;
+    height: 40px;
+    fill: rgba(255,255,255,0.1);
+    position: absolute;
+    left: -15px;
+    top: -15px;
+    z-index: 0;
 }
 
 .testimonial-content blockquote {
-    font-style: italic;
+    font-style: normal;
     margin: 0;
     padding: 0;
     position: relative;
     font-size: 1.1rem;
-    line-height: 1.6;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.9);
+    z-index: 1;
 }
 
-.testimonial-content blockquote:before {
-    content: '"';
-    font-size: 3rem;
-    color: #eee;
-    position: absolute;
-    left: -1.5rem;
-    top: -1rem;
-    line-height: 1;
-    z-index: 0;
-}
-
-.testimonial-author {
-    display: flex;
-    align-items: center;
-}
-
-.author-info h4 {
+.testimonial-author h4 {
     margin: 0 0 0.3rem 0;
-    color: #333;
+    color: white;
     font-size: 1.1rem;
+    font-weight: 500;
 }
 
-.author-info span {
+.testimonial-author span {
     font-size: 0.9rem;
-    color: #777;
+    color: rgba(255,255,255,0.6);
     display: block;
+    font-style: italic;
 }
 
-/* Responsive adjustments */
+/* Animation */
+[data-aos] {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+[data-aos="fade-up"] {
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+[data-aos].aos-animate {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
     .testimonial-card {
         padding: 1.5rem;
     }
-    
-    .testimonial-content blockquote {
-        font-size: 1rem;
-    }
 }
-
