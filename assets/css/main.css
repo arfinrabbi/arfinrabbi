@@ -3935,7 +3935,7 @@ input, select, textarea {
 
 .testimonial-content {
     position: relative;
-    padding-left: 3rem; /* Space for quote icon */
+    padding-left: 50px; /* Enough space for quote icon */
 }
 
 .quote-icon {
@@ -3944,12 +3944,11 @@ input, select, textarea {
     fill: rgba(255,255,255,0.1);
     position: absolute;
     left: 0;
-    top: 0;
+    top: 5px;
 }
 
 .feedback-content {
-    margin-left: 1.5rem; /* Pushes content to the right */
-    padding: 1.5rem;
+    padding-left: 15px; /* Additional spacing from quote icon */
     border-left: 3px solid rgba(255,255,255,0.1);
     transition: border-color 0.3s ease;
 }
@@ -3965,6 +3964,7 @@ input, select, textarea {
     font-size: 1.1rem;
     line-height: 1.7;
     color: rgba(255,255,255,0.9);
+    text-indent: -0.5em; /* Adjust text alignment with quote mark */
 }
 
 .testimonial-author h4 {
@@ -4011,12 +4011,12 @@ input, select, textarea {
     }
     
     .testimonial-content {
-        padding-left: 2rem;
+        padding-left: 40px;
     }
     
-    .feedback-content {
-        margin-left: 1rem;
-        padding: 1rem;
+    .quote-icon {
+        width: 30px;
+        height: 30px;
     }
     
     .testimonial-card:nth-child(n) { 
