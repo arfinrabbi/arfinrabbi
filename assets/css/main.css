@@ -3915,13 +3915,6 @@ input, select, textarea {
     padding: 4rem 0;
 }
 
-.testimonial-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    margin-bottom: 2rem;
-}
 
 .testimonial-content {
     margin-bottom: 1.5rem;
@@ -3976,3 +3969,4 @@ input, select, textarea {
         font-size: 1rem;
     }
 }
+
