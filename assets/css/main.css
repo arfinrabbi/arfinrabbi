@@ -3932,12 +3932,17 @@ input, select, textarea {
 .testimonial-card {
     padding: 2rem;
     position: relative;
-    transition: all 0.4s ease;
     border-left: 3px solid rgba(255,255,255,0.1);
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
 }
 
+.testimonial-card:nth-child(1) { animation-delay: 0.1s; }
+.testimonial-card:nth-child(2) { animation-delay: 0.2s; }
+.testimonial-card:nth-child(3) { animation-delay: 0.3s; }
+.testimonial-card:nth-child(4) { animation-delay: 0.4s; }
+
 .testimonial-card:hover {
-    transform: translateY(-5px);
     border-left-color: #4cc9f0;
 }
 
@@ -3981,19 +3986,16 @@ input, select, textarea {
     font-style: italic;
 }
 
-/* Animation */
-[data-aos] {
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-[data-aos="fade-up"] {
-    transform: translateY(20px);
-    opacity: 0;
-}
-
-[data-aos].aos-animate {
-    transform: translateY(0);
-    opacity: 1;
+/* CSS Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Responsive */
@@ -4004,5 +4006,9 @@ input, select, textarea {
     
     .testimonial-card {
         padding: 1.5rem;
+    }
+    
+    .testimonial-card:nth-child(n) { 
+        animation-delay: 0.1s !important; 
     }
 }
