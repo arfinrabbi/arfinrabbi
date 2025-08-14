@@ -187,4 +187,27 @@
 				}
 			});
 
+
 })(jQuery);
+
+// testimonials
+
+// Simple animation on scroll implementation
+document.addEventListener('DOMContentLoaded', function() {
+    const testimonialCards = document.querySelectorAll('[data-aos]');
+    
+    function checkPosition() {
+        testimonialCards.forEach(card => {
+            const position = card.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (position < windowHeight - 100) {
+                card.classList.add('aos-animate');
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', checkPosition);
+    window.addEventListener('resize', checkPosition);
+    checkPosition(); // Run once on load
+});
