@@ -3952,8 +3952,8 @@ input, select, textarea {
 }
 
 .quote-icon {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     fill: rgba(255,255,255,0.1);
     position: absolute;
     left: -15px;
@@ -3969,6 +3969,7 @@ input, select, textarea {
     font-size: 1.1rem;
     line-height: 1.7;
     color: rgba(255,255,255,0.9);
+	left: -10px;
     z-index: 1;
 }
 
@@ -4012,3 +4013,4 @@ input, select, textarea {
         animation-delay: 0.1s !important; 
     }
 }
+
