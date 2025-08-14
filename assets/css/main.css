@@ -3911,11 +3911,12 @@ input, select, textarea {
 
 /* Testimonial Section Styles */
 #testimonials {
-    padding: 5rem 0;
+    padding: 3rem 0 5rem; /* Reduced top padding from 5rem to 3rem */
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     color: white;
 }
 
+/* Rest of the CSS remains exactly the same */
 #testimonials .subtitle {
     color: rgba(255,255,255,0.7);
     margin-bottom: 3rem;
@@ -3935,7 +3936,7 @@ input, select, textarea {
 
 .testimonial-content {
     position: relative;
-    padding-left: 50px; /* Enough space for quote icon */
+    padding-left: 50px;
 }
 
 .quote-icon {
@@ -3948,7 +3949,7 @@ input, select, textarea {
 }
 
 .feedback-content {
-    padding-left: 15px; /* Additional spacing from quote icon */
+    padding-left: 15px;
 }
 
 .testimonial-text {
