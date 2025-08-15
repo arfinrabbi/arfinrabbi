@@ -2225,13 +2225,13 @@ input, select, textarea {
    Contact Section - Fixed Version
    ========================================================================== */
 .wrapper.style1 {
-    padding: 0.5em 0;
+    padding: 0.2em 0;
 }
 
 /* Contact Container - Wider Fields */
 .split.style1 {
     display: flex;
-    gap: 1em;
+    gap: 0.8em;
 }
 
 /* Left Column - Form (Wider) */
@@ -2300,19 +2300,19 @@ input, select, textarea {
 /* Stylish Calendly Button */
 .calendly-btn {
     display: inline-block;
-    padding: 0.9em 2em;
+    padding: 0.9em 1.8em;
     background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
     color: white !important;
     border-radius: 50px;
     font-weight: 600;
     letter-spacing: 0.5px;
-    font-size: 0.85em;
+    font-size: 0.70em;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(110, 72, 170, 0.3);
     width: 100%;
-    max-width: 220px;
+    max-width: 250px;
     margin: 0 auto 1.5em;
     text-transform: uppercase;
     text-align: center;
@@ -3910,6 +3910,7 @@ input, select, textarea {
         animation-delay: 0.1s !important; 
     }
 }
+
 
 
 
