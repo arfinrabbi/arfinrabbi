@@ -3975,7 +3975,7 @@ input, select, textarea {
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, #5E42A6, #312450);
+    color: #A1A1B5;
     border-radius: 2px;
 }
 
@@ -4207,3 +4207,4 @@ input, select, textarea {
         max-width: 100%;
     }
 }
+
