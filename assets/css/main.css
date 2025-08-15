@@ -2259,7 +2259,7 @@ input, select, textarea {
 #contactForm label {
     display: block;
     margin-bottom: 0.3em;
-    font-size: 1.0em; /* Smaller labels */
+    font-size: 1.5em; /* Smaller labels */
     color: rgba(255, 255, 255, 0.7);
     font-weight: bold;
 }
@@ -2272,8 +2272,8 @@ input, select, textarea {
     border-radius: 4px;
     background: transparent; /* Transparent background */
     color: none;
-    font-size: 1.0em;
-    height: 2.5em; /* Fixed height */
+    font-size: 1.5em;
+    height: 3.5em; /* Fixed height */
     transition: all 0.3s ease;
 }
 
@@ -3889,6 +3889,7 @@ input, select, textarea {
         animation-delay: 0.1s !important; 
     }
 }
+
 
 
 
