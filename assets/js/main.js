@@ -210,7 +210,7 @@
                 }
             });
     //portfolio
-        document.addEventListener('DOMContentLoaded', function() {
+       document.addEventListener('DOMContentLoaded', function() {
     // Initialize animations
     setTimeout(() => {
         const items = document.querySelectorAll('.portfolio-item');
@@ -243,3 +243,4 @@
 });
 
 })(jQuery);
+
