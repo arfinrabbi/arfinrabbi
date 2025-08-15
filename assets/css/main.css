@@ -2236,13 +2236,13 @@ input, select, textarea {
 
 /* Left Column - Form (Wider) */
 .split.style1 > :first-child {
-    width: 65%;
+    width: 60%;
     padding-right: 1em;
 }
 
 /* Right Column - Centered Content */
 .split.style1 > :last-child {
-    width: 45%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -3910,6 +3910,7 @@ input, select, textarea {
         animation-delay: 0.1s !important; 
     }
 }
+
 
 
 
