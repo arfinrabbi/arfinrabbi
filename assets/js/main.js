@@ -232,7 +232,12 @@
             this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
         });
     });
+
+    // Fix for template's scrolling behavior
+    $(document).on('click', 'a[href^="#"]', function(event) {
+        event.preventDefault();
+        $('html, body').animate({
+            scrollTop: $($.attr(this, 'href')).offset().top
+        }, 500);
+    });
 });
-
-})(jQuery);
-
