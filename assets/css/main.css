@@ -2225,113 +2225,99 @@ input, select, textarea {
    Contact Section - Fixed Version
    ========================================================================== */
 .wrapper.style1 {
-    padding: 1em 0; /* Reduced top padding */
+    padding: 0.5em 0; /* Minimal top padding */
 }
 
-/* Contact Container */
+/* Contact Container - Wider Fields */
 .split.style1 {
     display: flex;
-    gap: 1.5em; /* Reduced gap */
-    position: relative;
+    gap: 1em;
 }
 
-/* Left Column - Form */
+/* Left Column - Form (Wider) */
 .split.style1 > :first-child {
-    width: 60%;
-    padding-right: 1.5em; /* Reduced padding */
+    width: 70%; /* Increased width */
+    padding-right: 1em;
 }
 
-/* Right Column - Links */
+/* Right Column - Centered Content */
 .split.style1 > :last-child {
-    width: 40%;
-    padding-left: 1.5em; /* Reduced padding */
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertical center */
+    align-items: center; /* Horizontal center */
+    text-align: center;
+    padding-left: 1em;
 }
 
-/* Vertical separator line */
-.split.style1 > :first-child::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    width: 1px;
-    background: rgba(255, 255, 255, 0.1);
+/* Remove all message elements */
+.error-message,
+.form-alert {
+    display: none !important;
 }
 
-/* Form Styles */
+/* Form Styles - Wider */
 #contactForm .field {
-    margin-bottom: 1em; /* Reduced margin */
+    margin-bottom: 0.8em;
+    width: 100%; /* Full width fields */
 }
 
 #contactForm label {
-    display: block;
-    margin-bottom: 0.3em; /* Reduced margin */
-    font-size: 0.9em; /* Reduced font size */
-    color: rgba(255, 255, 255, 0.7);
-    font-weight: bold;
+    font-size: 0.9em;
+    margin-bottom: 0.3em;
 }
 
 #contactForm input,
 #contactForm textarea {
-    padding: 0.6em 0.8em; /* Reduced padding */
-    font-size: 0.9em; /* Reduced font size */
-    height: 2.5em; /* Reduced height */
+    width: 100%; /* Full width fields */
+    padding: 0.6em 0.8em;
+    font-size: 0.9em;
 }
 
-#contactForm textarea {
-    min-height: 5em; /* Reduced height */
-}
-
-/* Messages */
-.error-message {
-    font-size: 0.75em; /* Reduced font size */
-    margin-top: 0.3em; /* Reduced margin */
-}
-
-.form-alert {
-    padding: 0.6em; /* Reduced padding */
-    font-size: 0.8em; /* Reduced font size */
-}
-
-/* Calendly Button */
+/* Right Column Elements */
 .calendly-btn {
-    padding: 0.8em 1.5em; /* Reduced padding */
-    font-size: 0.8em; /* Reduced font size */
-    margin-bottom: 1.5em; /* Reduced margin */
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto 1.5em;
 }
 
-/* Connect With Me heading */
 .connect-heading {
-    font-size: 1.1em; /* Reduced font size */
-    margin-bottom: 0.8em; /* Reduced margin */
+    font-size: 1.1em;
+    margin-bottom: 1em;
+    width: 100%;
 }
 
-/* Social Links */
 .social-section {
-    margin-top: 0.8em; /* Reduced margin */
+    width: 100%;
 }
 
 .social-section .icons {
-    gap: 0.8em; /* Reduced gap */
+    justify-content: center;
+    gap: 0.8em;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 980px) {
-    .split.style1 > :first-child {
-        padding-bottom: 1.5em; /* Reduced padding */
-        margin-bottom: 1.5em; /* Reduced margin */
-    }
-}
-
-@media (max-width: 480px) {
-    #contactForm input {
-        height: 2.2em; /* Reduced height */
+/* Responsive */
+@media (max-width: 768px) {
+    .split.style1 {
+        flex-direction: column;
     }
     
-    #contactForm textarea {
-        min-height: 4em; /* Reduced height */
+    .split.style1 > :first-child,
+    .split.style1 > :last-child {
+        width: 100%;
+        padding: 0;
+    }
+    
+    .split.style1 > :first-child {
+        margin-bottom: 1.5em;
+    }
+    
+    .calendly-btn {
+        margin-bottom: 1em;
     }
 }
+
 
 /* Icon */
 
@@ -3871,18 +3857,4 @@ input, select, textarea {
         animation-delay: 0.1s !important; 
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
