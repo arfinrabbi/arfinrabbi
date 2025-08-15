@@ -209,16 +209,9 @@
                         $(this).removeClass('inactive');
                 }
             });
-    //portfolio
-       document.addEventListener('DOMContentLoaded', function() {
-    // Initialize animations
-    setTimeout(() => {
-        const items = document.querySelectorAll('.portfolio-item');
-        items.forEach((item, index) => {
-            item.style.animationDelay = `${index * 0.2}s`;
-        });
-    }, 500);
     
+// portfolio
+document.addEventListener('DOMContentLoaded', function() {
     // Add hover effects
     const portfolioItems = document.querySelectorAll('.portfolio-item');
     portfolioItems.forEach(item => {
@@ -226,14 +219,14 @@
             this.style.transform = 'translateY(-10px)';
             this.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.4)';
         });
-        
+
         item.addEventListener('mouseleave', function() {
             this.style.transform = '';
             this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
         });
     });
 
-    // Fix for template's scrolling behavior
+    // Smooth scroll for anchor links
     $(document).on('click', 'a[href^="#"]', function(event) {
         event.preventDefault();
         $('html, body').animate({
@@ -242,5 +235,7 @@
     });
 });
 
+
 })(jQuery);
+
 
