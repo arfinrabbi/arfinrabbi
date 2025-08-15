@@ -3973,12 +3973,26 @@ input, select, textarea {
 }
 
 .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 30px;
-    justify-items: center;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.portfolio-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.centered-row {
+    justify-content: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% + 60px); /* Account for gap */
 }
 
 .portfolio-item {
@@ -3997,6 +4011,7 @@ input, select, textarea {
     background-blend-mode: overlay;
 }
 
+/* Background images for each card */
 .portfolio-item:nth-child(1) {
     background-image: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
 }
@@ -4017,6 +4032,7 @@ input, select, textarea {
     background-image: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
 }
 
+/* Rest of your existing portfolio item styles... */
 .portfolio-item::before {
     content: '';
     position: absolute;
@@ -4053,130 +4069,19 @@ input, select, textarea {
     transition: all 0.5s;
 }
 
-.portfolio-item-icon {
-    width: 80px;
-    height: 80px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    transition: transform 0.5s;
-}
-
-.portfolio-item:hover .portfolio-item-icon {
-    transform: scale(1.1);
-}
-
-.portfolio-item-icon i {
-    font-size: 2.5rem;
-    color: #fff;
-}
-
-.portfolio-item h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #fff;
-}
-
-.portfolio-item p {
-    color: #a1a1b5;
-    font-size: 0.9rem;
-    margin-bottom: 20px;
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height 0.5s, opacity 0.5s, margin-bottom 0.5s;
-    text-align: center;
-    width: 100%;
-}
-
-.portfolio-item:hover p {
-    max-height: 100px;
-    opacity: 1;
-    margin-bottom: 20px;
-}
-
-.portfolio-item .btn {
-    display: inline-block;
-    padding: 8px 20px;
-    background: linear-gradient(90deg, #5E42A6, #312450);
-    color: #fff;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: transform 0.3s, box-shadow 0.3s;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s, transform 0.5s;
-}
-
-.portfolio-item:hover .btn {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.portfolio-item .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(94, 66, 166, 0.4);
-}
-
-/* Animation classes */
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 1s forwards;
-}
-
-.slide-up {
-    opacity: 0;
-    transform: translateY(50px);
-    animation: slideUp 1s forwards;
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.delay-1 {
-    animation-delay: 0.2s;
-}
-
-.delay-2 {
-    animation-delay: 0.4s;
-}
-
-.delay-3 {
-    animation-delay: 0.6s;
-}
-
-.delay-4 {
-    animation-delay: 0.8s;
-}
-
-.delay-5 {
-    animation-delay: 1s;
-}
+/* ... rest of your existing styles ... */
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
-    .portfolio-header h1 {
-        font-size: 2.5rem;
+@media (max-width: 900px) {
+    .portfolio-row {
+        flex-direction: column;
+        align-items: center;
     }
     
-    .portfolio-grid {
-        grid-template-columns: 1fr;
+    .centered-row {
+        left: auto;
+        transform: none;
+        width: 100%;
     }
     
     .portfolio-item {
