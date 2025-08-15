@@ -2225,35 +2225,29 @@ input, select, textarea {
    Contact Section - Fixed Version
    ========================================================================== */
 .wrapper.style1 {
-    padding: 2em 0;
+    padding: 1em 0; /* Reduced top padding */
 }
 
 /* Contact Container */
 .split.style1 {
     display: flex;
-    gap: 2em;
+    gap: 1.5em; /* Reduced gap */
     position: relative;
 }
 
 /* Left Column - Form */
 .split.style1 > :first-child {
     width: 60%;
-    padding-right: 2em;
-    position: relative;
+    padding-right: 1.5em; /* Reduced padding */
 }
 
 /* Right Column - Links */
 .split.style1 > :last-child {
     width: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding-left: 2em;
-    position: relative;
+    padding-left: 1.5em; /* Reduced padding */
 }
 
-/* Single Vertical separator line */
+/* Vertical separator line */
 .split.style1 > :first-child::after {
     content: '';
     position: absolute;
@@ -2266,162 +2260,76 @@ input, select, textarea {
 
 /* Form Styles */
 #contactForm .field {
-    margin-bottom: 1.5em;
-    position: relative;
+    margin-bottom: 1em; /* Reduced margin */
 }
 
 #contactForm label {
     display: block;
-    margin-bottom: 0.5em;
-    font-size: 1.0em;
+    margin-bottom: 0.3em; /* Reduced margin */
+    font-size: 0.9em; /* Reduced font size */
     color: rgba(255, 255, 255, 0.7);
     font-weight: bold;
 }
 
 #contactForm input,
 #contactForm textarea {
-    width: 100%;
-    padding: 0.8em 1em;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-    background: transparent;
-    color: white;
-    font-size: 1.0em;
-    height: 3em;
-    transition: all 0.3s ease;
+    padding: 0.6em 0.8em; /* Reduced padding */
+    font-size: 0.9em; /* Reduced font size */
+    height: 2.5em; /* Reduced height */
 }
 
 #contactForm textarea {
-    min-height: 6em;
-    height: auto;
-    resize: vertical;
+    min-height: 5em; /* Reduced height */
 }
 
-/* Error and Success Messages */
+/* Messages */
 .error-message {
-    display: none;
-    color: #ff6b6b;
-    font-size: 0.8em;
-    margin-top: 0.5em;
+    font-size: 0.75em; /* Reduced font size */
+    margin-top: 0.3em; /* Reduced margin */
 }
 
 .form-alert {
-    display: none;
-    padding: 0.8em;
-    margin: 1em 0;
-    border-radius: 4px;
-    font-size: 0.9em;
-}
-
-#formSuccess {
-    background: rgba(76, 175, 80, 0.2);
-    color: #4CAF50;
-    border: 1px solid #4CAF50;
-}
-
-#formError {
-    background: rgba(244, 67, 54, 0.2);
-    color: #f44336;
-    border: 1px solid #f44336;
+    padding: 0.6em; /* Reduced padding */
+    font-size: 0.8em; /* Reduced font size */
 }
 
 /* Calendly Button */
 .calendly-btn {
-    display: inline-block;
-    padding: 1em 2em;
-    background: #ffffff;
-    color: #312450 !important;
-    border-radius: 3em;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-size: 0.9em;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
-    margin-bottom: 2em;
-}
-
-.calendly-btn:hover {
-    background: rgba(255, 255, 255, 0.9);
+    padding: 0.8em 1.5em; /* Reduced padding */
+    font-size: 0.8em; /* Reduced font size */
+    margin-bottom: 1.5em; /* Reduced margin */
 }
 
 /* Connect With Me heading */
 .connect-heading {
-    font-size: 1.3em;
-    color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 1em;
-    font-weight: bold;
-    width: 100%;
-    text-align: center;
+    font-size: 1.1em; /* Reduced font size */
+    margin-bottom: 0.8em; /* Reduced margin */
 }
 
-/* Social Links - Center Aligned */
+/* Social Links */
 .social-section {
-    margin-top: 1em;
-    width: 100%;
+    margin-top: 0.8em; /* Reduced margin */
 }
 
 .social-section .icons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1em;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-.social-section .icons li {
-    margin: 0;
+    gap: 0.8em; /* Reduced gap */
 }
 
 /* Responsive Adjustments */
 @media (max-width: 980px) {
-    .split.style1 {
-        flex-direction: column;
-    }
-    
-    .split.style1 > :first-child,
-    .split.style1 > :last-child {
-        width: 100%;
-        padding: 0;
-    }
-    
     .split.style1 > :first-child {
-        padding-bottom: 2em;
-        margin-bottom: 2em;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .split.style1 > :first-child::after {
-        display: none;
-    }
-    
-    .calendly-btn {
-        width: 100%;
-        max-width: 300px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .social-section .icons {
-        justify-content: center;
+        padding-bottom: 1.5em; /* Reduced padding */
+        margin-bottom: 1.5em; /* Reduced margin */
     }
 }
 
 @media (max-width: 480px) {
     #contactForm input {
-        height: 2.5em;
+        height: 2.2em; /* Reduced height */
     }
     
     #contactForm textarea {
-        min-height: 100px;
-    }
-    
-    .social-section .icons {
-        gap: 0.5em;
+        min-height: 4em; /* Reduced height */
     }
 }
 
@@ -3963,6 +3871,7 @@ input, select, textarea {
         animation-delay: 0.1s !important; 
     }
 }
+
 
 
 
