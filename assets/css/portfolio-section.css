@@ -1,4 +1,109 @@
-/* Update your existing portfolio item styles */
+/* Portfolio Section */
+#portfolio {
+    padding: 4rem 2rem;
+    background: #0f0f1b;
+    color: #fff;
+    width: 100%;
+}
+
+.portfolio-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.portfolio-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    color: #A1A1B5;
+    position: relative;
+    display: inline-block;
+}
+
+.portfolio-header p {
+    font-size: 1.1rem;
+    color: #a1a1b5;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.portfolio-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.portfolio-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.centered-row {
+    justify-content: center;
+}
+
+.portfolio-item {
+    background: #1a1a2e;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    height: 300px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 280px;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+}
+
+/* Background images for each card */
+.portfolio-item:nth-child(1) {
+    background-image: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
+}
+
+.portfolio-item:nth-child(2) {
+    background-image: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('https://images.unsplash.com/photo-1584735429094-8c455d9784f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
+}
+
+.portfolio-item:nth-child(3) {
+    background-image: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
+}
+
+.portfolio-item:nth-child(4) {
+    background-image: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
+}
+
+.portfolio-item:nth-child(5) {
+    background-image: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
+}
+
+.portfolio-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(94, 66, 166, 0.3), rgba(49, 36, 80, 0.3));
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.portfolio-item:hover::before {
+    opacity: 1;
+}
+
+/* Portfolio Item Content - Initial State */
 .portfolio-item-content {
     position: absolute;
     top: 50%;
@@ -11,80 +116,139 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: all 0.5s;
+    transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .portfolio-item-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
     color: #fff;
-    transition: all 0.5s;
+    transition: all 0.5s ease;
 }
 
 .portfolio-item h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
+    font-size: 1.75rem;
+    margin-bottom: 0;
     color: #fff;
-    transition: all 0.5s;
+    transition: all 0.5s ease;
 }
 
 .portfolio-item p {
     opacity: 0;
-    height: 0;
+    max-height: 0;
     overflow: hidden;
-    margin-bottom: 0;
+    margin: 0;
     color: #a1a1b5;
-    transition: all 0.5s;
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 1.6;
+    transition: all 0.5s ease;
 }
 
 .portfolio-item .btn {
     opacity: 0;
     transform: translateY(20px);
-    transition: all 0.5s;
+    transition: all 0.5s ease;
     margin-top: 0;
     padding: 0;
     height: 0;
     overflow: hidden;
-    border: none;
-    background: none;
+    border: 2px solid transparent;
+    background: transparent;
     color: #fff;
     text-decoration: none;
     font-weight: 600;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* Hover states */
+/* Hover States */
 .portfolio-item:hover .portfolio-item-content {
     top: 50%;
 }
 
 .portfolio-item:hover .portfolio-item-icon {
-    font-size: 2rem;
-    margin-bottom: 10px;
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
 }
 
 .portfolio-item:hover h3 {
-    margin-bottom: 10px;
+    margin-bottom: 0.75rem;
+    font-size: 1.5rem;
 }
 
 .portfolio-item:hover p {
     opacity: 1;
-    height: auto;
-    margin-bottom: 20px;
+    max-height: 100px;
+    margin-bottom: 1.5rem;
 }
 
 .portfolio-item:hover .btn {
     opacity: 1;
     transform: translateY(0);
     height: auto;
-    padding: 10px 25px;
-    margin-top: 10px;
-    border: 2px solid #fff;
-    border-radius: 30px;
+    padding: 0.75rem 1.5rem;
+    margin-top: 0.5rem;
+    border-color: #fff;
 }
 
-.portfolio-item:hover .btn:hover {
+.portfolio-item .btn:hover {
     background: #fff;
     color: #1a1a2e;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .portfolio-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .portfolio-item {
+        max-width: 100%;
+    }
+    
+    .portfolio-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .portfolio-header p {
+        font-size: 1rem;
+    }
+}
+
+/* Animation Classes */
+.slide-up {
+    animation: slideUp 0.8s ease forwards;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+.delay-5 { animation-delay: 1s; }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
