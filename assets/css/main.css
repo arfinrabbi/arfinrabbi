@@ -3809,22 +3809,42 @@ input, select, textarea {
 .testimonials-header {
     text-align: left;
     margin-bottom: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
 }
 
 #testimonials .subtitle {
     color: rgba(255,255,255,0.7);
     margin-top: 0.5rem;
     font-size: 1.1rem;
+    font-weight: 300;
 }
 
 .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .testimonial-card {
     position: relative;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.2);
 }
 
 .testimonial-content {
@@ -3835,10 +3855,15 @@ input, select, textarea {
 .quote-icon {
     width: 40px;
     height: 40px;
-    fill: rgba(255,255,255,0.1);
+    fill: rgba(255,255,255,0.2);
     position: absolute;
     left: 0;
     top: 5px;
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover .quote-icon {
+    fill: rgba(255,255,255,0.4);
 }
 
 .feedback-content {
@@ -3910,10 +3935,8 @@ input, select, textarea {
     .testimonial-card:nth-child(n) { 
         animation-delay: 0.1s !important; 
     }
+    
+    .testimonial-card {
+        padding: 20px;
+    }
 }
-
-
-
-
-
-
