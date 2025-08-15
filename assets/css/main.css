@@ -2226,13 +2226,14 @@ input, select, textarea {
    ========================================================================== */
 
 .wrapper.style1 {
-    padding: 2em 0; /* Reduced padding */
+    padding: 2em 0;
 }
 
 /* Contact Container */
 .split.style1 {
     display: flex;
     gap: 2em;
+    position: relative;
 }
 
 /* Left Column - Form */
@@ -2248,18 +2249,31 @@ input, select, textarea {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    padding-left: 2em;
+    position: relative;
 }
 
-/* Form Styles - Fixed */
+/* Vertical separator line */
+.split.style1 > :last-child::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Form Styles */
 #contactForm .field {
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
 }
 
 #contactForm label {
     display: block;
-    margin-bottom: 0.3em;
-    font-size: 1.5em; /* Smaller labels */
+    margin-bottom: 0.5em;
+    font-size: 1.8em; /* Increased label size */
     color: rgba(255, 255, 255, 0.7);
     font-weight: bold;
 }
@@ -2267,54 +2281,59 @@ input, select, textarea {
 #contactForm input,
 #contactForm textarea {
     width: 100%;
-    padding: 0.5em 0.75em;
+    padding: 1em 1em; /* Increased padding */
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 4px;
-    background: transparent; /* Transparent background */
-    color: none;
+    background: transparent;
+    color: white;
     font-size: 1.5em;
-    height: 3.5em; /* Fixed height */
+    height: 4em; /* Increased height */
     transition: all 0.3s ease;
 }
 
 #contactForm textarea {
-    min-height: 100px; /* Reduced height */
+    min-height: 150px; /* Increased height */
     height: auto;
     resize: vertical;
 }
 
-/* Calendly Button - Fixed */
+/* Calendly Button */
 .calendly-btn {
     display: inline-block;
-    padding: 0.75em 1.5em;
+    padding: 1em 2em; /* Increased padding */
     background: #ffffff;
     color: #312450 !important;
     border-radius: 3em;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    font-size: 0.7em;
+    font-size: 0.9em; /* Slightly larger */
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
     text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
+    margin-bottom: 2em;
 }
 
 .calendly-btn:hover {
     background: rgba(255, 255, 255, 0.9);
 }
 
+/* Connect With Me heading */
+.connect-heading {
+    font-size: 1.8em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1em;
+    font-weight: bold;
+}
+
 /* Social Links */
 .social-section {
-    margin-top: 2em;
+    margin-top: 1em;
 }
 
 .social-section .icons {
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 /* Responsive Adjustments */
@@ -2335,19 +2354,23 @@ input, select, textarea {
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
     
+    .split.style1 > :last-child::before {
+        display: none;
+    }
+    
     .calendly-btn {
         width: 100%;
-        max-width: 250px;
+        max-width: 300px;
     }
 }
 
 @media (max-width: 480px) {
     #contactForm input {
-        height: 2.2em;
+        height: 3.5em;
     }
     
     #contactForm textarea {
-        min-height: 80px;
+        min-height: 120px;
     }
 }
 
@@ -3889,6 +3912,7 @@ input, select, textarea {
         animation-delay: 0.1s !important; 
     }
 }
+
 
 
 
