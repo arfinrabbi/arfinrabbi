@@ -1,0 +1,144 @@
+/* Portfolio Section */
+#portfolio {
+    padding: 4rem 2rem;
+    background: #0f0f1b;
+    color: #fff;
+    width: 100%;
+}
+
+.portfolio-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.portfolio-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    color: #A1A1B5;
+    position: relative;
+    display: inline-block;
+}
+
+.portfolio-header p {
+    font-size: 1.1rem;
+    color: #a1a1b5;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.portfolio-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.portfolio-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.centered-row {
+    justify-content: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% + 60px); /* Account for gap */
+}
+
+.portfolio-item {
+    background: #1a1a2e;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    height: 300px;
+    cursor: pointer;
+    transition: transform 0.5s, box-shadow 0.5s;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 280px;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+}
+
+/* Background images for each card */
+.portfolio-item:nth-child(1) {
+    background-image: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
+}
+
+.portfolio-item:nth-child(2) {
+    background-image: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('https://images.unsplash.com/photo-1584735429094-8c455d9784f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
+}
+
+.portfolio-item:nth-child(3) {
+    background-image: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
+}
+
+.portfolio-item:nth-child(4) {
+    background-image: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
+}
+
+.portfolio-item:nth-child(5) {
+    background-image: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
+}
+
+/* Rest of your existing portfolio item styles... */
+.portfolio-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(94, 66, 166, 0.3), rgba(49, 36, 80, 0.3));
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.portfolio-item:hover::before {
+    opacity: 1;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.portfolio-item-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: 20px;
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.5s;
+}
+
+/* ... rest of your existing styles ... */
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .portfolio-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .centered-row {
+        left: auto;
+        transform: none;
+        width: 100%;
+    }
+    
+    .portfolio-item {
+        max-width: 100%;
+    }
+}
