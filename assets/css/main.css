@@ -2307,7 +2307,7 @@ input, select, textarea {
     font-weight: 600;
     letter-spacing: 0.5px;
     font-size: 0.70em;
-    border: none;
+    border: 1px;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(110, 72, 170, 0.3);
@@ -2330,7 +2330,8 @@ input, select, textarea {
 }
 
 .connect-heading {
-    font-size: 1.1em;
+    font-size: 0.8em;
+	margin-top: 1.2em;
     margin-bottom: 1.2em;
     width: 100%;
     color: rgba(255, 255, 255, 0.9);
@@ -3910,6 +3911,7 @@ input, select, textarea {
         animation-delay: 0.1s !important; 
     }
 }
+
 
 
 
