@@ -3944,11 +3944,12 @@ input, select, textarea {
 /**********************************************************************************/
 /*portfolio*/
 
-.portfolio {
+/* Portfolio Section */
+#portfolio {
+    padding: 4rem 2rem;
+    background: #0f0f1b;
+    color: #fff;
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px 20px;
 }
 
 .portfolio-header {
@@ -3959,24 +3960,9 @@ input, select, textarea {
 .portfolio-header h1 {
     font-size: 3.5rem;
     margin-bottom: 15px;
-    background: linear-gradient(90deg, #5E42A6, #312450);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: #A1A1B5;
     position: relative;
     display: inline-block;
-}
-
-.portfolio-header h1::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    color: #A1A1B5;
-    border-radius: 2px;
 }
 
 .portfolio-header p {
@@ -3991,6 +3977,8 @@ input, select, textarea {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
     justify-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .portfolio-item {
@@ -4181,18 +4169,6 @@ input, select, textarea {
     animation-delay: 1s;
 }
 
-/* Center alignment for odd number of items */
-@media (min-width: 768px) {
-    .portfolio-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-    
-    .portfolio-item:nth-last-child(-n+2) {
-        grid-column: span 1;
-        justify-self: center;
-    }
-}
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .portfolio-header h1 {
@@ -4207,5 +4183,3 @@ input, select, textarea {
         max-width: 100%;
     }
 }
-
-
