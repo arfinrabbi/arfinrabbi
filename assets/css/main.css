@@ -2224,7 +2224,6 @@ input, select, textarea {
 /* ==========================================================================
    Contact Section - Fixed Version
    ========================================================================== */
-
 .wrapper.style1 {
     padding: 2em 0;
 }
@@ -2273,7 +2272,7 @@ input, select, textarea {
 #contactForm label {
     display: block;
     margin-bottom: 0.5em;
-    font-size: 1.8em; /* Increased label size */
+    font-size: 1.0em; /* Changed to 1.0em as requested */
     color: rgba(255, 255, 255, 0.7);
     font-weight: bold;
 }
@@ -2281,18 +2280,18 @@ input, select, textarea {
 #contactForm input,
 #contactForm textarea {
     width: 100%;
-    padding: 1em 1em; /* Increased padding */
+    padding: 0.8em 1em; /* Slightly reduced padding */
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 4px;
     background: transparent;
     color: white;
-    font-size: 1.5em;
-    height: 4em; /* Increased height */
+    font-size: 1.0em; /* Changed to 1.0em as requested */
+    height: 3em; /* Slightly reduced height */
     transition: all 0.3s ease;
 }
 
 #contactForm textarea {
-    min-height: 150px; /* Increased height */
+    min-height: 2.0em; /* Changed to 2.0em as requested */
     height: auto;
     resize: vertical;
 }
@@ -2300,14 +2299,14 @@ input, select, textarea {
 /* Calendly Button */
 .calendly-btn {
     display: inline-block;
-    padding: 1em 2em; /* Increased padding */
+    padding: 1em 2em;
     background: #ffffff;
     color: #312450 !important;
     border-radius: 3em;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    font-size: 0.9em; /* Slightly larger */
+    font-size: 0.9em;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -2366,11 +2365,11 @@ input, select, textarea {
 
 @media (max-width: 480px) {
     #contactForm input {
-        height: 3.5em;
+        height: 2.5em;
     }
     
     #contactForm textarea {
-        min-height: 120px;
+        min-height: 100px;
     }
 }
 
@@ -3912,6 +3911,7 @@ input, select, textarea {
         animation-delay: 0.1s !important; 
     }
 }
+
 
 
 
