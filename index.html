@@ -186,25 +186,25 @@
         <p>Don't hesitate! Reach out for a free consultation.</p>
         <div class="split style1">
             <section>
-                <form method="POST" action="https://formspree.io/f/mnnzrzza">
-                    <div class="fields">
-                        <div class="field half">
-                            <label for="name">Name</label>
-                            <input type="text" name="name" id="name" required />
-                        </div>
-                        <div class="field half">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" id="email" required />
-                        </div>
-                        <div class="field">
-                            <label for="message">Message</label>
-                            <textarea name="message" id="message" rows="5" required></textarea>
-                        </div>
-                    </div>
-                    <ul class="actions">
-                        <li><button type="submit" class="button submit">Send Message</button></li>
-                    </ul>
-                </form>
+         	       <form id="contactForm" method="POST" action="https://formspree.io/f/mnnzrzza">
+		    <div class="fields">
+  		      <div class="field half">
+    		        <input type="text" name="name" id="name" placeholder=" " required />
+     	    	   <label for="name">Name</label>
+        		</div>
+        			<div class="field half">
+            	<input type="email" name="email" id="email" placeholder=" " required />
+            <label for="email">Email</label>
+        </div>
+        <div class="field">
+            <textarea name="message" id="message" rows="5" placeholder=" " required></textarea>
+            <label for="message">Message</label>
+        </div>
+    </div>
+    <ul class="actions">
+        <li><button type="submit" class="button submit">Send Message</button></li>
+    </ul>
+</form>
             </section>
             <section>
                 <ul class="contact">
@@ -248,6 +248,7 @@
 
 	</body>
 </html>
+
 
 
 
