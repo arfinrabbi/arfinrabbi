@@ -2345,7 +2345,7 @@ input, select, textarea {
     background: linear-gradient(135deg, #6e48aa, #9d50bb);
     color: #fff;
     border: none;
-    padding: 0.9em 1.8em;
+    padding: 0.5em 1.8em;
     font-size: 0.8em;
     font-weight: 400;
     border-radius: 50px;
@@ -4243,6 +4243,7 @@ input, select, textarea {
         opacity: 1;
     }
 }
+
 
 
 
