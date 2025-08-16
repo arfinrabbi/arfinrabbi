@@ -2221,9 +2221,9 @@ input, select, textarea {
 
 		}
 
-/* ==========================================================================
-   Contact Form Section - Fixed Version
-   ========================================================================== */
+/* ===================================================================================
+   Contact Section Layout
+===================================================================================== */
 .split.style1 {
     display: flex;
     gap: 2em;
@@ -2239,7 +2239,7 @@ input, select, textarea {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Right Column - Centered Content */
+/* Right Column - Info & Social */
 .split.style1 > :last-child {
     width: 30%;
     display: flex;
@@ -2253,21 +2253,22 @@ input, select, textarea {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Form Structure */
+/* ================================
+   Contact Form
+================================ */
 #contactForm {
     display: flex;
     flex-direction: column;
-    gap: 1.8em;
+    gap: 2em;
 }
 
-/* Fields Grid Layout */
+/* Grid for Fields */
 .fields {
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
 }
 
-/* Field Styling */
 .field {
     position: relative;
     width: 100%;
@@ -2277,52 +2278,57 @@ input, select, textarea {
     width: calc(50% - 0.75rem);
 }
 
-/* Labels */
-#contactForm label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-size: 0.85em;
-    color: rgba(255, 255, 255, 0.7);
-    pointer-events: none;
-    transform-origin: 0 0;
-    transition: all 0.3s ease;
-    transform: translateY(0);
-}
-
-/* Input Fields */
+/* Inputs & Textarea */
 #contactForm input,
 #contactForm textarea {
     width: 100%;
     padding: 0.8em 0;
+    font-size: 1em;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Floating Labels */
+#contactForm label {
+    position: absolute;
+    left: 0;
+    top: 0.9em;
     font-size: 0.95em;
-    border: 1px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
-    transition: all 0.3s ease;
+    color: rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+    transition: 0.3s ease all;
 }
 
-#contactForm textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
-/* Focus States */
+/* Move label up when typing or focusing */
 #contactForm input:focus + label,
 #contactForm input:not(:placeholder-shown) + label,
 #contactForm textarea:focus + label,
 #contactForm textarea:not(:placeholder-shown) + label {
-    transform: translateY(-20px) scale(0.85);
+    top: -0.8em;
+    font-size: 0.8em;
     color: #9d50bb;
 }
 
+/* Focus Effect */
 #contactForm input:focus,
 #contactForm textarea:focus {
     outline: none;
     border-bottom-color: #9d50bb;
+    box-shadow: 0 2px 8px rgba(157, 80, 187, 0.3);
 }
 
-/* Submit Button */
+/* Textarea */
+#contactForm textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ================================
+   Submit Button
+================================ */
 #contactForm .actions {
     margin-top: 1em;
     width: 100%;
@@ -2331,11 +2337,11 @@ input, select, textarea {
 }
 
 #contactForm .button.submit {
-    background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
-    color: white;
+    background: linear-gradient(135deg, #6e48aa, #9d50bb);
+    color: #fff;
     border: none;
     padding: 1em 2em;
-    font-size: 0.95em;
+    font-size: 1em;
     font-weight: 600;
     border-radius: 50px;
     cursor: pointer;
@@ -2352,7 +2358,9 @@ input, select, textarea {
     box-shadow: 0 5px 15px rgba(110, 72, 170, 0.4);
 }
 
-/* Right Column Elements */
+/* ================================
+   Right Column (Calendly + Social)
+================================ */
 .connect-heading {
     font-size: 1em;
     margin: 1.5em 0;
@@ -2379,7 +2387,9 @@ input, select, textarea {
     justify-content: center;
 }
 
-/* Responsive Design */
+/* ================================
+   Responsive Design
+================================ */
 @media (max-width: 768px) {
     .split.style1 {
         flex-direction: column;
@@ -4227,6 +4237,7 @@ input, select, textarea {
         opacity: 1;
     }
 }
+
 
 
 
