@@ -3847,7 +3847,9 @@ input, select, textarea {
 
 		}
 
-/* Testimonial Section Styles **************************************************************************************************/
+/**********************************************************************************************
+Testimonial Section Styles 
+**************************************************************************************************/
 #testimonials {
     padding: 1.5rem 0 2rem;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
@@ -3883,7 +3885,7 @@ input, select, textarea {
     position: relative;
     background: rgba(255,255,255,0.05);
     border-radius: 8px;
-    padding: 15px;
+    padding: 5px 15px;
     transition: all 0.3s ease;
     border: 1px solid rgba(255,255,255,0.1);
 }
@@ -3914,7 +3916,7 @@ input, select, textarea {
 }
 
 .feedback-content {
-    padding-left: 30px;
+    padding-left: 15px 30px;
 }
 
 .testimonial-text {
@@ -3922,7 +3924,6 @@ input, select, textarea {
     margin: 0 0 0.8rem 0;
     padding: 0;
     font-size: 0.85rem;
-    line-height: 1.5;
     color: rgba(255,255,255,0.9);
     position: relative;
 }
@@ -3988,7 +3989,9 @@ input, select, textarea {
     }
 }
 
-/* Portfolio Section *******************************************************************/
+/**********************************************************************************
+Portfolio Section 
+***********************************************************************************/
 #portfolio {
     padding: 4rem 2rem;
     background: #0f0f1b;
@@ -4243,12 +4246,3 @@ input, select, textarea {
         opacity: 1;
     }
 }
-
-
-
-
-
-
-
-
-
