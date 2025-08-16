@@ -2224,10 +2224,6 @@ input, select, textarea {
 /* ==========================================================================
    Contact Form Section - Fixed Version
    ========================================================================== */
-.wrapper.style1 {
-    padding: 0;
-}
-
 /* Contact Container */
 .split.style1 {
     display: flex;
@@ -2235,26 +2231,24 @@ input, select, textarea {
     align-items: stretch;
 }
 
-/* Left Column - Form */
+/* Left Column - Form (now wider) */
 .split.style1 > :first-child {
-    width: 60%;
+    width: 70%; /* Increased from 60% */
     padding: 2em;
-    background: rgba(255, 255, 255, 0.03);
+    background: transparent; /* Fully transparent */
     border-radius: 12px;
-    backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Right Column - Content */
 .split.style1 > :last-child {
-    width: 40%;
+    width: 30%; /* Adjusted to match new ratio */
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 2em;
-    background: rgba(255, 255, 255, 0.03);
+    background: transparent; /* Fully transparent */
     border-radius: 12px;
-    backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -2262,7 +2256,7 @@ input, select, textarea {
 #contactForm {
     display: flex;
     flex-direction: column;
-    gap: 1.5em;
+    gap: 1.8em; /* Slightly more spacing between fields */
 }
 
 #contactForm .field {
@@ -2282,12 +2276,13 @@ input, select, textarea {
     transform: translateY(0);
 }
 
+/* Wider input fields with full width */
 #contactForm input,
 #contactForm textarea {
     width: 100%;
     padding: 0.8em 0;
     font-size: 0.95em;
-    background: transparent;
+    background: transparent; /* Fully transparent */
     border: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
@@ -2298,19 +2293,14 @@ input, select, textarea {
 #contactForm textarea:focus {
     outline: none;
     border-bottom-color: #9d50bb;
+    background: transparent; /* Ensure stays transparent on focus */
 }
 
-#contactForm input:focus + label,
-#contactForm input:not(:placeholder-shown) + label,
-#contactForm textarea:focus + label,
-#contactForm textarea:not(:placeholder-shown) + label {
-    transform: translateY(-20px) scale(0.85);
-    color: #9d50bb;
-}
-
+/* Textarea specific styles */
 #contactForm textarea {
     min-height: 120px;
     resize: vertical;
+    background: transparent;
 }
 
 /* Submit Button */
@@ -2333,91 +2323,7 @@ input, select, textarea {
     font-size: 0.85em;
 }
 
-#contactForm .actions input[type="submit"]:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(110, 72, 170, 0.4);
-}
-
-/* Calendly Button */
-.calendly-btn {
-    display: inline-block;
-    padding: 1em 2em;
-    background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);
-    color: white !important;
-    border-radius: 50px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    font-size: 0.85em;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(71, 118, 230, 0.3);
-    width: 100%;
-    max-width: 250px;
-    margin: 0 auto 1.5em;
-    text-transform: uppercase;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.calendly-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(71, 118, 230, 0.4);
-}
-
-.connect-heading {
-    font-size: 1em;
-    margin: 1.5em 0;
-    color: rgba(255, 255, 255, 0.9);
-    position: relative;
-    text-align: center;
-}
-
-.connect-heading::before,
-.connect-heading::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    width: 30%;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.connect-heading::before {
-    left: 0;
-}
-
-.connect-heading::after {
-    right: 0;
-}
-
-.social-section .icons {
-    justify-content: center;
-    gap: 1.5em;
-}
-
-.social-section .icons a {
-    transition: all 0.3s ease;
-}
-
-.social-section .icons a:hover {
-    transform: translateY(-3px);
-    opacity: 0.9;
-}
-
-/* Floating Label Animation */
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-5px); }
-    100% { transform: translateY(0px); }
-}
-
-.calendly-btn:hover {
-    animation: float 1.5s ease infinite;
-}
-
-/* Responsive */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     .split.style1 {
         flex-direction: column;
@@ -2428,18 +2334,18 @@ input, select, textarea {
     .split.style1 > :last-child {
         width: 100%;
         padding: 1.5em;
+        background: transparent; /* Maintain transparency on mobile */
     }
     
-    .connect-heading::before,
-    .connect-heading::after {
-        width: 25%;
+    #contactForm {
+        gap: 1.5em;
     }
     
-    .calendly-btn {
-        max-width: 100%;
+    #contactForm input,
+    #contactForm textarea {
+        padding: 0.9em 0; /* Slightly larger touch targets */
     }
 }
-
 
 /* Icon */
 
@@ -4263,3 +4169,4 @@ input, select, textarea {
         opacity: 1;
     }
 }
+
