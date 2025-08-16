@@ -2224,16 +2224,15 @@ input, select, textarea {
 /* ==========================================================================
    Contact Form Section - Fixed Version
    ========================================================================== */
-/* Contact Container - Wider Layout */
 .split.style1 {
     display: flex;
     gap: 2em;
-    align-items: flex-start; /* Changed from stretch */
+    align-items: flex-start;
 }
 
 /* Left Column - Form (Wider) */
 .split.style1 > :first-child {
-    width: 70%; /* Increased width */
+    width: 70%;
     padding: 2em;
     background: transparent;
     border-radius: 12px;
@@ -2246,27 +2245,39 @@ input, select, textarea {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; /* Center all content horizontally */
-    text-align: center; /* Center text */
+    align-items: center;
+    text-align: center;
     padding: 2em;
     background: transparent;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Form Styles - Clean Transparent Fields */
+/* Form Structure */
 #contactForm {
     display: flex;
     flex-direction: column;
     gap: 1.8em;
 }
 
-#contactForm .field {
+/* Fields Grid Layout */
+.fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+/* Field Styling */
+.field {
     position: relative;
     width: 100%;
 }
 
-/* Floating Labels */
+.field.half {
+    width: calc(50% - 0.75rem);
+}
+
+/* Labels */
 #contactForm label {
     position: absolute;
     top: 0;
@@ -2279,24 +2290,17 @@ input, select, textarea {
     transform: translateY(0);
 }
 
-/* Form Inputs - Full Width, No Background */
+/* Input Fields */
 #contactForm input,
 #contactForm textarea {
     width: 100%;
     padding: 0.8em 0;
     font-size: 0.95em;
-    background: transparent !important; /* Force transparency */
+    background: transparent !important;
     border: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
     transition: all 0.3s ease;
-}
-
-#contactForm input:focus,
-#contactForm textarea:focus {
-    outline: none;
-    border-bottom-color: #9d50bb;
-    background: transparent !important;
 }
 
 #contactForm textarea {
@@ -2304,7 +2308,52 @@ input, select, textarea {
     resize: vertical;
 }
 
-/* Right Column Elements - Centered */
+/* Focus States */
+#contactForm input:focus + label,
+#contactForm input:not(:placeholder-shown) + label,
+#contactForm textarea:focus + label,
+#contactForm textarea:not(:placeholder-shown) + label {
+    transform: translateY(-20px) scale(0.85);
+    color: #9d50bb;
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+    outline: none;
+    border-bottom-color: #9d50bb;
+}
+
+/* Submit Button */
+#contactForm .actions {
+    margin-top: 1em;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+}
+
+#contactForm .button.submit {
+    background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+    color: white;
+    border: none;
+    padding: 1em 2em;
+    font-size: 0.95em;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+    text-align: center;
+}
+
+#contactForm .button.submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(110, 72, 170, 0.4);
+}
+
+/* Right Column Elements */
 .connect-heading {
     font-size: 1em;
     margin: 1.5em 0;
@@ -2316,6 +2365,13 @@ input, select, textarea {
     width: 100%;
     max-width: 250px;
     margin: 0 auto 1.5em;
+    padding: 0.9em 1.8em;
+    background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .social-section {
@@ -2324,17 +2380,7 @@ input, select, textarea {
     justify-content: center;
 }
 
-/* Submit Button */
-#contactForm .actions {
-    margin-top: 1em;
-    width: 100%;
-}
-
-#contactForm .actions input[type="submit"] {
-    width: 100%;
-}
-
-/* Responsive */
+/* Responsive Design */
 @media (max-width: 768px) {
     .split.style1 {
         flex-direction: column;
@@ -2347,6 +2393,14 @@ input, select, textarea {
     
     .split.style1 > :first-child {
         margin-bottom: 1.5em;
+    }
+    
+    .field.half {
+        width: 100%;
+    }
+    
+    .fields {
+        gap: 1rem;
     }
 }
 
@@ -4174,5 +4228,6 @@ input, select, textarea {
         opacity: 1;
     }
 }
+
 
 
