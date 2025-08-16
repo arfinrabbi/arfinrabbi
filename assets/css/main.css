@@ -2333,7 +2333,7 @@ input, select, textarea {
    Submit Button (Fixed)
 ================================ */
 #contactForm .actions {
-    margin-top: 1em;
+    margin-top: 0.5em;
     width: 100%;
     list-style: none;
     padding: 0;
@@ -2353,8 +2353,10 @@ input, select, textarea {
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    display: inline-block;
-    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
 }
 
 #contactForm .button.submit:hover {
@@ -4241,6 +4243,7 @@ input, select, textarea {
         opacity: 1;
     }
 }
+
 
 
 
