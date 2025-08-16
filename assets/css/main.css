@@ -2222,64 +2222,74 @@ input, select, textarea {
 		}
 
 /* ==========================================================================
-   Contact Section - Fixed Version
+   Contact Form Section - Fixed Version
    ========================================================================== */
 .wrapper.style1 {
-    padding: 0.2em 0;
+    padding: 0;
 }
 
-/* Contact Container - Wider Fields */
+/* Contact Container */
 .split.style1 {
     display: flex;
-    gap: 0.8em;
+    gap: 2em;
+    align-items: stretch;
 }
 
-/* Left Column - Form (Wider) */
+/* Left Column - Form */
 .split.style1 > :first-child {
     width: 60%;
-    padding-right: 1em;
+    padding: 2em;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Right Column - Centered Content */
+/* Right Column - Content */
 .split.style1 > :last-child {
     width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding-left: 1em;
-}
-
-/* Remove all message elements */
-.error-message,
-.form-alert {
-    display: none !important;
+    padding: 2em;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Enhanced Form Styles */
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
 #contactForm .field {
-    margin-bottom: 1em;
-    width: 100%;
     position: relative;
+    width: 100%;
 }
 
 #contactForm label {
-    font-size: 0.9em;
-    margin-bottom: 0.5em;
-    color: rgba(255, 255, 255, 0.8);
-    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 0.85em;
+    color: rgba(255, 255, 255, 0.7);
+    pointer-events: none;
+    transform-origin: 0 0;
     transition: all 0.3s ease;
+    transform: translateY(0);
 }
 
 #contactForm input,
 #contactForm textarea {
     width: 100%;
-    padding: 0.4em 0;
-    font-size: 0.9em;
+    padding: 0.8em 0;
+    font-size: 0.95em;
     background: transparent;
     border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
     transition: all 0.3s ease;
 }
@@ -2288,29 +2298,60 @@ input, select, textarea {
 #contactForm textarea:focus {
     outline: none;
     border-bottom-color: #9d50bb;
-    box-shadow: none;
-    background: transparent;
+}
+
+#contactForm input:focus + label,
+#contactForm input:not(:placeholder-shown) + label,
+#contactForm textarea:focus + label,
+#contactForm textarea:not(:placeholder-shown) + label {
+    transform: translateY(-20px) scale(0.85);
+    color: #9d50bb;
 }
 
 #contactForm textarea {
-    min-height: 100px;
+    min-height: 120px;
     resize: vertical;
 }
 
-/* Stylish Calendly Button */
+/* Submit Button */
+#contactForm .actions {
+    margin-top: 1em;
+}
+
+#contactForm .actions input[type="submit"] {
+    background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+    color: white;
+    border: none;
+    padding: 1em 2em;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85em;
+}
+
+#contactForm .actions input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(110, 72, 170, 0.4);
+}
+
+/* Calendly Button */
 .calendly-btn {
     display: inline-block;
-    padding: 0.9em 1.8em;
-    background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+    padding: 1em 2em;
+    background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);
     color: white !important;
     border-radius: 50px;
     font-weight: 600;
     letter-spacing: 0.5px;
-    font-size: 0.70em;
-    border: 1px;
+    font-size: 0.85em;
+    border: none;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(110, 72, 170, 0.3);
+    box-shadow: 0 4px 15px rgba(71, 118, 230, 0.3);
     width: 100%;
     max-width: 250px;
     margin: 0 auto 1.5em;
@@ -2321,56 +2362,84 @@ input, select, textarea {
 }
 
 .calendly-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(110, 72, 170, 0.4);
-}
-
-.calendly-btn:active {
-    transform: translateY(0);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(71, 118, 230, 0.4);
 }
 
 .connect-heading {
-    font-size: 0.8em;
-    margin-top: 1.2em;
-    margin-bottom: 1.2em;
-    width: 100%;
+    font-size: 1em;
+    margin: 1.5em 0;
     color: rgba(255, 255, 255, 0.9);
+    position: relative;
+    text-align: center;
 }
 
-.social-section {
-    width: 100%;
+.connect-heading::before,
+.connect-heading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.connect-heading::before {
+    left: 0;
+}
+
+.connect-heading::after {
+    right: 0;
 }
 
 .social-section .icons {
     justify-content: center;
-    gap: 1em;
+    gap: 1.5em;
+}
+
+.social-section .icons a {
+    transition: all 0.3s ease;
+}
+
+.social-section .icons a:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+
+/* Floating Label Animation */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+.calendly-btn:hover {
+    animation: float 1.5s ease infinite;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .split.style1 {
         flex-direction: column;
+        gap: 1.5em;
     }
     
     .split.style1 > :first-child,
     .split.style1 > :last-child {
         width: 100%;
-        padding: 0;
+        padding: 1.5em;
     }
     
-    .split.style1 > :first-child {
-        margin-bottom: 1.5em;
+    .connect-heading::before,
+    .connect-heading::after {
+        width: 25%;
     }
     
     .calendly-btn {
-        margin-bottom: 1.5em;
-    }
-    
-    #contactForm input,
-    #contactForm textarea {
-        padding: 0.7em 0;
+        max-width: 100%;
     }
 }
+
 
 /* Icon */
 
@@ -4194,7 +4263,3 @@ input, select, textarea {
         opacity: 1;
     }
 }
-
-
-
-
