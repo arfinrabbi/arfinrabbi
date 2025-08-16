@@ -2224,39 +2224,41 @@ input, select, textarea {
 /* ==========================================================================
    Contact Form Section - Fixed Version
    ========================================================================== */
-/* Contact Container */
+/* Contact Container - Wider Layout */
 .split.style1 {
     display: flex;
     gap: 2em;
-    align-items: stretch;
+    align-items: flex-start; /* Changed from stretch */
 }
 
-/* Left Column - Form (now wider) */
+/* Left Column - Form (Wider) */
 .split.style1 > :first-child {
-    width: 70%; /* Increased from 60% */
+    width: 70%; /* Increased width */
     padding: 2em;
-    background: transparent; /* Fully transparent */
+    background: transparent;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Right Column - Content */
+/* Right Column - Centered Content */
 .split.style1 > :last-child {
-    width: 30%; /* Adjusted to match new ratio */
+    width: 30%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center; /* Center all content horizontally */
+    text-align: center; /* Center text */
     padding: 2em;
-    background: transparent; /* Fully transparent */
+    background: transparent;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Enhanced Form Styles */
+/* Form Styles - Clean Transparent Fields */
 #contactForm {
     display: flex;
     flex-direction: column;
-    gap: 1.8em; /* Slightly more spacing between fields */
+    gap: 1.8em;
 }
 
 #contactForm .field {
@@ -2264,6 +2266,7 @@ input, select, textarea {
     width: 100%;
 }
 
+/* Floating Labels */
 #contactForm label {
     position: absolute;
     top: 0;
@@ -2276,13 +2279,13 @@ input, select, textarea {
     transform: translateY(0);
 }
 
-/* Wider input fields with full width */
+/* Form Inputs - Full Width, No Background */
 #contactForm input,
 #contactForm textarea {
     width: 100%;
     padding: 0.8em 0;
     font-size: 0.95em;
-    background: transparent; /* Fully transparent */
+    background: transparent !important; /* Force transparency */
     border: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
@@ -2293,59 +2296,61 @@ input, select, textarea {
 #contactForm textarea:focus {
     outline: none;
     border-bottom-color: #9d50bb;
-    background: transparent; /* Ensure stays transparent on focus */
+    background: transparent !important;
 }
 
-/* Textarea specific styles */
 #contactForm textarea {
     min-height: 120px;
     resize: vertical;
-    background: transparent;
+}
+
+/* Right Column Elements - Centered */
+.connect-heading {
+    font-size: 1em;
+    margin: 1.5em 0;
+    color: rgba(255, 255, 255, 0.9);
+    width: 100%;
+}
+
+.calendly-btn {
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto 1.5em;
+}
+
+.social-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 /* Submit Button */
 #contactForm .actions {
     margin-top: 1em;
+    width: 100%;
 }
 
 #contactForm .actions input[type="submit"] {
-    background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
-    color: white;
-    border: none;
-    padding: 1em 2em;
-    border-radius: 50px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
     width: 100%;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.85em;
 }
 
-/* Responsive Adjustments */
+/* Responsive */
 @media (max-width: 768px) {
     .split.style1 {
         flex-direction: column;
-        gap: 1.5em;
     }
     
     .split.style1 > :first-child,
     .split.style1 > :last-child {
         width: 100%;
-        padding: 1.5em;
-        background: transparent; /* Maintain transparency on mobile */
     }
     
-    #contactForm {
-        gap: 1.5em;
-    }
-    
-    #contactForm input,
-    #contactForm textarea {
-        padding: 0.9em 0; /* Slightly larger touch targets */
+    .split.style1 > :first-child {
+        margin-bottom: 1.5em;
     }
 }
+
+
 
 /* Icon */
 
@@ -4169,4 +4174,5 @@ input, select, textarea {
         opacity: 1;
     }
 }
+
 
