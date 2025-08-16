@@ -2227,7 +2227,7 @@ input, select, textarea {
 .split.style1 {
     display: flex;
     gap: 2em;
-    align-items: flex-start;
+    align-items: stretch; /* makes both columns same height */
 }
 
 /* Left Column - Form (Wider) */
@@ -2239,12 +2239,12 @@ input, select, textarea {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Right Column - Info & Social */
+/* Right Column - Info & Social (Centered Vertically) */
 .split.style1 > :last-child {
     width: 30%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center;  /* centers vertically */
     align-items: center;
     text-align: center;
     padding: 2em;
@@ -2278,15 +2278,15 @@ input, select, textarea {
     width: calc(50% - 0.75rem);
 }
 
-/* Inputs & Textarea */
+/* Inputs & Textarea with thin border */
 #contactForm input,
 #contactForm textarea {
     width: 100%;
-    padding: 0.8em 0;
+    padding: 0.9em 1em;
     font-size: 1em;
     background: transparent;
-    border: none;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
     color: #fff;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -2294,21 +2294,24 @@ input, select, textarea {
 /* Floating Labels */
 #contactForm label {
     position: absolute;
-    left: 0;
-    top: 0.9em;
+    left: 1em;
+    top: 1em;
     font-size: 0.95em;
     color: rgba(255, 255, 255, 0.6);
     pointer-events: none;
     transition: 0.3s ease all;
 }
 
-/* Move label up when typing or focusing */
+/* Move label up when typing/focusing */
 #contactForm input:focus + label,
 #contactForm input:not(:placeholder-shown) + label,
 #contactForm textarea:focus + label,
 #contactForm textarea:not(:placeholder-shown) + label {
-    top: -0.8em;
+    top: -0.7em;
+    left: 0.8em;
     font-size: 0.8em;
+    background: #0f0f1b; /* keeps text readable, matches bg */
+    padding: 0 0.3em;
     color: #9d50bb;
 }
 
@@ -2316,8 +2319,8 @@ input, select, textarea {
 #contactForm input:focus,
 #contactForm textarea:focus {
     outline: none;
-    border-bottom-color: #9d50bb;
-    box-shadow: 0 2px 8px rgba(157, 80, 187, 0.3);
+    border-color: #9d50bb;
+    box-shadow: 0 0 6px rgba(157, 80, 187, 0.5);
 }
 
 /* Textarea */
@@ -2327,30 +2330,31 @@ input, select, textarea {
 }
 
 /* ================================
-   Submit Button
+   Submit Button (Fixed)
 ================================ */
 #contactForm .actions {
     margin-top: 1em;
     width: 100%;
     list-style: none;
     padding: 0;
+    display: flex;
+    justify-content: center;
 }
 
 #contactForm .button.submit {
     background: linear-gradient(135deg, #6e48aa, #9d50bb);
     color: #fff;
     border: none;
-    padding: 1em 2em;
+    padding: 0.9em 2.2em;
     font-size: 1em;
     font-weight: 600;
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
-    width: 100%;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    display: block;
-    text-align: center;
+    display: inline-block;
+    width: fit-content;
 }
 
 #contactForm .button.submit:hover {
@@ -4237,6 +4241,7 @@ input, select, textarea {
         opacity: 1;
     }
 }
+
 
 
 
