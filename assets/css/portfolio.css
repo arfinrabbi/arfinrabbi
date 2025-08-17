@@ -308,7 +308,7 @@ header {
     text-align: center;
     margin: 5rem 0 3rem;
     padding: 3rem 2rem;
-    background: linear-gradient(135deg, #5E42A6 40%, #5E42A6 100%);
+    background: linear-gradient(135deg, #5E42A6 0%, #5E42A6 100%);
     border-radius: 16px;
     position: relative;
     overflow: hidden;
