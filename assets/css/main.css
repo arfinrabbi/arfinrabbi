@@ -2375,16 +2375,21 @@ input, select, textarea {
 }
 
 .calendly-btn {
-    width: 100%;
-    max-width: 250px;
-    margin: 0 auto 1.5em;
-    padding: 0.9em 1.8em;
-    background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);
-    color: white;
+    background: linear-gradient(135deg, #6e48aa, #9d50bb);
+    color: #fff;
+    border: none;
+    padding: 0.5em 1.8em;
+    font-size: 0.8em;
+    font-weight: 400;
     border-radius: 50px;
-    font-weight: 600;
-    text-decoration: none;
-    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
 }
 
 .social-section {
@@ -4265,4 +4270,5 @@ Portfolio Section
         opacity: 1;
     }
 }
+
 
