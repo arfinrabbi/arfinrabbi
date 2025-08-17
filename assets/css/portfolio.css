@@ -90,7 +90,7 @@ header h1 {
 }
 
 .project-image-container {
-    width: 45%;
+    width: 55%;
     padding: 1.5rem;
     display: flex;
     align-items: center;
@@ -101,13 +101,13 @@ header h1 {
 .project-image {
     width: 100%;
     height: auto;
-    max-height: 300px;
+    max-height: 400px;
     object-fit: contain;
     border-radius: 4px;
 }
 
 .project-info {
-    width: 55%;
+    width: 45%;
     padding: 2rem;
     display: flex;
     flex-direction: column;
