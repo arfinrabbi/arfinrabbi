@@ -1,7 +1,6 @@
 /**********************************************************************************************
 Logo Portfolio
 *************************************************************************************************/
-/* Base Styles */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -80,18 +79,18 @@ header h1 {
     transition: all 0.3s ease;
 }
 
-/* Odd items (1st, 3rd, 5th) - image left, text right */
+/* Odd items (1st, 3rd, 5th) - image left (45%), text right (55%) */
 .portfolio-item:nth-child(odd) {
     flex-direction: row;
 }
 
-/* Even items (2nd, 4th, 6th) - image right, text left */
+/* Even items (2nd, 4th, 6th) - image right (45%), text left (55%) */
 .portfolio-item:nth-child(even) {
     flex-direction: row-reverse;
 }
 
 .project-image-container {
-    flex: 1;
+    width: 45%;
     padding: 1.5rem;
     display: flex;
     align-items: center;
@@ -108,7 +107,7 @@ header h1 {
 }
 
 .project-info {
-    flex: 1;
+    width: 55%;
     padding: 2rem;
     display: flex;
     flex-direction: column;
