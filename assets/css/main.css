@@ -3851,43 +3851,51 @@ input, select, textarea {
 Testimonial Section Styles 
 **************************************************************************************************/
 #testimonials {
-    padding: 1.5rem 0 2rem;
+    padding: 1.5rem 0;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     color: white;
+    height: 900px;
+    display: flex;
+    align-items: center;
 }
 
-.testimonials-header {
-    text-align: left;
-    margin-bottom: 1.5rem;
+.inner {
+    width: 100%;
     max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 15px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-#testimonials .subtitle {
+#testimonials h2 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+.subtitle {
     color: rgba(255,255,255,0.7);
-    margin-top: 0.2rem;
-    font-size: 0.85rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1rem;
     font-weight: 300;
 }
 
 .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
+    gap: 1.5rem;
+    max-height: 700px;
+    overflow: hidden;
 }
 
 .testimonial-card {
-    position: relative;
     background: rgba(255,255,255,0.05);
     border-radius: 8px;
-    padding: 5px 15px;
+    padding: 20px;
     transition: all 0.3s ease;
     border: 1px solid rgba(255,255,255,0.1);
+    height: 100%;
+    box-sizing: border-box;
 }
 
 .testimonial-card:hover {
@@ -3899,15 +3907,16 @@ Testimonial Section Styles
 
 .testimonial-content {
     position: relative;
+    height: 100%;
 }
 
 .quote-icon {
-    width: 25px;
-    height: 25px;
+    width: 24px;
+    height: 24px;
     fill: rgba(255,255,255,0.2);
     position: absolute;
     left: 0;
-    top: 2px;
+    top: 0;
     transition: all 0.3s ease;
 }
 
@@ -3916,27 +3925,31 @@ Testimonial Section Styles
 }
 
 .feedback-content {
-    padding-left: 15px 30px;
+    padding-left: 35px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .testimonial-text {
     font-style: italic;
-    margin: 0 0 0.8rem 0;
+    margin: 0 0 1rem 0;
     padding: 0;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     color: rgba(255,255,255,0.9);
-    position: relative;
+    line-height: 1.5;
+    flex-grow: 1;
 }
 
 .testimonial-author h4 {
-    margin: 0 0 0.1rem 0;
+    margin: 0 0 0.2rem 0;
     color: white;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     font-weight: 500;
 }
 
 .testimonial-author span {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: rgba(255,255,255,0.6);
     display: block;
     font-style: italic;
@@ -3966,26 +3979,25 @@ Testimonial Section Styles
 
 /* Responsive */
 @media (max-width: 768px) {
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+    #testimonials {
+        height: auto;
+        padding: 2rem 0;
     }
     
-    .testimonial-card {
-        padding: 12px;
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        max-height: none;
     }
     
     .testimonial-card:nth-child(n) { 
         animation-delay: 0.1s !important; 
     }
-    
-    .feedback-content {
-        padding-left: 25px;
-    }
-    
-    .quote-icon {
-        width: 20px;
-        height: 20px;
+}
+
+@media (max-height: 900px) {
+    #testimonials {
+        height: auto;
+        padding: 3rem 0;
     }
 }
 
@@ -4246,3 +4258,4 @@ Portfolio Section
         opacity: 1;
     }
 }
+
