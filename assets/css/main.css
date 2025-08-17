@@ -4080,19 +4080,19 @@ Portfolio Section
 }
 
 .portfolio-item:nth-child(2) {
-    background-image: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('https://images.unsplash.com/photo-1584735429094-8c455d9784f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
+    background-image: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('https://images.unsplash.com/photo-1529254479751-faeedc59e78f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
 }
 
 .portfolio-item:nth-child(3) {
-    background-image: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
+    background-image: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('https://images.unsplash.com/photo-1566125618135-8063e23d8e4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
 }
 
 .portfolio-item:nth-child(4) {
-    background-image: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
+    background-image: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('https://images.unsplash.com/photo-1553147324-7f50517efe04?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
 }
 
 .portfolio-item:nth-child(5) {
-    background-image: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
+    background-image: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
 }
 
 .portfolio-item::before {
@@ -4265,3 +4265,4 @@ Portfolio Section
         opacity: 1;
     }
 }
+
