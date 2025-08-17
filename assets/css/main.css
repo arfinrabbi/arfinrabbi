@@ -3854,7 +3854,7 @@ Testimonial Section Styles
     padding: 2rem 0;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     color: white;
-    height: 1000px;
+    height: 1100px;
     display: flex;
     align-items: center;
 }
@@ -4265,5 +4265,6 @@ Portfolio Section
         opacity: 1;
     }
 }
+
 
 
