@@ -174,3 +174,131 @@ footer {
         font-size: 1.25rem;
     }
 }
+
+/* Add to your existing CSS file */
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, #343a40 0%, #2c3e50 100%);
+    color: white;
+    padding: 1.5rem 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.portfolio-title {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.portfolio-title:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+
+.portfolio-title h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: linear-gradient(to right, #ffffff, #f8f9fa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.portfolio-subtitle {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+    color: rgba(255,255,255,0.8);
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.nav-btn {
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.4rem;
+    border-radius: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.nav-btn:hover {
+    background-color: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.nav-btn.active {
+    background-color: #0d6efd;
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+}
+
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+    .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .portfolio-title {
+        margin-bottom: 0;
+        text-align: left;
+    }
+    
+    .nav-buttons {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-title h1 {
+        font-size: 2rem;
+    }
+    
+    .portfolio-subtitle {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+    }
+    
+    .nav-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+}
