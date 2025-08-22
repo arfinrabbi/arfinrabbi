@@ -1,0 +1,288 @@
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --light-bg: #f8f9fa;
+    --dark-text: #333;
+    --light-text: #fff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-text);
+    background-color: var(--light-bg);
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.portfolio-title {
+    text-decoration: none;
+    color: var(--light-text);
+}
+
+.portfolio-title h1 {
+    margin-bottom: 0.2rem;
+    font-size: 1.8rem;
+}
+
+.portfolio-subtitle {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-btn {
+    color: var(--light-text);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+.nav-btn:hover, .nav-btn.active {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Main Content */
+main {
+    padding: 3rem 0;
+}
+
+main h2 {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 2.2rem;
+    color: var(--primary-color);
+}
+
+/* Gallery Section */
+.gallery-section {
+    margin-bottom: 4rem;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
+}
+
+.gallery-container {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.gallery-track {
+    display: flex;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.gallery-slide {
+    flex: 0 0 calc(100% / 3);
+    padding: 10px;
+    transition: var(--transition);
+}
+
+.gallery-slide img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 6px;
+    transition: var(--transition);
+    box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+}
+
+.gallery-slide img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.gallery-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.nav-arrow {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.nav-arrow:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.gallery-description {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+/* Behance Section */
+.behance-section {
+    text-align: center;
+    padding: 3rem 0;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);
+    color: white;
+    border-radius: 10px;
+    margin: 4rem 0;
+}
+
+.more-projects {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.behance-button-container {
+    display: inline-block;
+    position: relative;
+}
+
+.behance-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: white;
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 2;
+}
+
+.behance-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.floating-dots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.floating-dots span {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    animation: float 15s infinite linear;
+}
+
+.floating-dots span:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+.floating-dots span:nth-child(2) { top: 60%; left: 5%; animation-delay: 1.5s; }
+.floating-dots span:nth-child(3) { top: 40%; left: 15%; animation-delay: 3s; }
+.floating-dots span:nth-child(4) { top: 80%; left: 25%; animation-delay: 4.5s; }
+.floating-dots span:nth-child(5) { top: 30%; left: 80%; animation-delay: 6s; }
+.floating-dots span:nth-child(6) { top: 70%; left: 85%; animation-delay: 7.5s; }
+.floating-dots span:nth-child(7) { top: 50%; left: 75%; animation-delay: 9s; }
+.floating-dots span:nth-child(8) { top: 10%; left: 65%; animation-delay: 10.5s; }
+.floating-dots span:nth-child(9) { top: 25%; left: 40%; animation-delay: 12s; }
+.floating-dots span:nth-child(10) { top: 75%; left: 50%; animation-delay: 13.5s; }
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 3rem;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .gallery-slide {
+        flex: 0 0 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .gallery-slide {
+        flex: 0 0 100%;
+    }
+}
