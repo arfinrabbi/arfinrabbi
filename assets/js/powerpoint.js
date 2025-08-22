@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     galleries.forEach(gallery => {
         const track = gallery.querySelector('.gallery-track');
         const slides = gallery.querySelectorAll('.gallery-slide');
-        const navContainer = gallery.nextElementSibling;
+        const navContainer = gallery.closest('.gallery-section').querySelector('.gallery-nav');
         
         // Check if navigation elements exist
         if (!navContainer) return;
@@ -35,21 +35,28 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // Update slide widths for responsive design
+            const slideWidthPercentage = 100 / slidesToShow;
             slides.forEach(slide => {
-                slide.style.flex = `0 0 ${100 / slidesToShow}%`;
+                slide.style.flex = `0 0 ${slideWidthPercentage}%`;
             });
             
+            // Return the actual pixel width of a single slide
             return track.offsetWidth / slidesToShow;
         }
         
         let slideWidth = calculateSlideWidth();
-        let maxPosition = -((slides.length - slidesToShow) * slideWidth);
+        let maxPosition = -((slides.length / 2 - slidesToShow) * slideWidth);
         
         // Set up event listeners for navigation
         if (prevBtn) {
             prevBtn.addEventListener('click', () => {
                 if (currentPosition < 0) {
                     currentPosition += slideWidth;
+                    track.style.transform = `translateX(${currentPosition}px)`;
+                    resetAutoScroll();
+                } else {
+                    // If at the beginning, loop to the end
+                    currentPosition = maxPosition;
                     track.style.transform = `translateX(${currentPosition}px)`;
                     resetAutoScroll();
                 }
@@ -107,10 +114,12 @@ document.addEventListener('DOMContentLoaded', function() {
         let resizeTimer;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimer);
+            clearInterval(autoScrollInterval);
+            
             resizeTimer = setTimeout(() => {
                 // Recalculate dimensions
                 slideWidth = calculateSlideWidth();
-                maxPosition = -((slides.length - slidesToShow) * slideWidth);
+                maxPosition = -((slides.length / 2 - slidesToShow) * slideWidth);
                 
                 // Reset position if needed
                 if (currentPosition < maxPosition) {
