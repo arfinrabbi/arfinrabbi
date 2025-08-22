@@ -20,74 +20,71 @@ document.addEventListener('DOMContentLoaded', function() {
         const nextBtn = navContainer.querySelector('.next-arrow');
         
         // Initialize variables
-        let currentPosition = 0;
+        let currentSlide = 0;
         let autoScrollInterval;
         let slidesToShow = 3;
         
-        // Function to calculate slide width
-        function calculateSlideWidth() {
+        // Function to calculate how many slides to show
+        function calculateSlidesToShow() {
             if (window.innerWidth < 768) {
-                slidesToShow = 1;
+                return 1;
             } else if (window.innerWidth < 992) {
-                slidesToShow = 2;
+                return 2;
             } else {
-                slidesToShow = 3;
+                return 3;
             }
-            
-            // Update slide widths for responsive design
-            const slideWidthPercentage = 100 / slidesToShow;
-            slides.forEach(slide => {
-                slide.style.flex = `0 0 ${slideWidthPercentage}%`;
-            });
-            
-            // Return the actual pixel width of a single slide
-            return track.offsetWidth / slidesToShow;
         }
         
-        let slideWidth = calculateSlideWidth();
-        let maxPosition = -((slides.length / 2 - slidesToShow) * slideWidth);
+        // Function to update the gallery
+        function updateGallery() {
+            slidesToShow = calculateSlidesToShow();
+            const slideWidth = 100 / slidesToShow;
+            
+            // Set slide widths
+            slides.forEach(slide => {
+                slide.style.flex = `0 0 ${slideWidth}%`;
+            });
+            
+            // Move to the correct position
+            moveToSlide(currentSlide);
+        }
+        
+        // Function to move to a specific slide
+        function moveToSlide(index) {
+            // Ensure index is within bounds
+            const maxSlideIndex = Math.max(0, slides.length - slidesToShow);
+            currentSlide = Math.max(0, Math.min(index, maxSlideIndex));
+            
+            // Calculate the translateX value
+            const translateXValue = -(currentSlide * (100 / slidesToShow));
+            track.style.transform = `translateX(${translateXValue}%)`;
+        }
         
         // Set up event listeners for navigation
         if (prevBtn) {
             prevBtn.addEventListener('click', () => {
-                if (currentPosition < 0) {
-                    currentPosition += slideWidth;
-                    track.style.transform = `translateX(${currentPosition}px)`;
-                    resetAutoScroll();
-                } else {
-                    // If at the beginning, loop to the end
-                    currentPosition = maxPosition;
-                    track.style.transform = `translateX(${currentPosition}px)`;
-                    resetAutoScroll();
-                }
+                moveToSlide(currentSlide - 1);
+                resetAutoScroll();
             });
         }
         
         if (nextBtn) {
             nextBtn.addEventListener('click', () => {
-                if (currentPosition > maxPosition) {
-                    currentPosition -= slideWidth;
-                    track.style.transform = `translateX(${currentPosition}px)`;
-                    resetAutoScroll();
-                } else {
-                    // If at the end, loop back to start
-                    currentPosition = 0;
-                    track.style.transform = `translateX(${currentPosition}px)`;
-                    resetAutoScroll();
-                }
+                moveToSlide(currentSlide + 1);
+                resetAutoScroll();
             });
         }
         
         // Function to start auto-scroll
         function startAutoScroll() {
             autoScrollInterval = setInterval(() => {
-                if (currentPosition > maxPosition) {
-                    currentPosition -= slideWidth;
-                    track.style.transform = `translateX(${currentPosition}px)`;
+                const maxSlideIndex = Math.max(0, slides.length - slidesToShow);
+                
+                if (currentSlide < maxSlideIndex) {
+                    moveToSlide(currentSlide + 1);
                 } else {
                     // Reset to first slide when reaching the end
-                    currentPosition = 0;
-                    track.style.transform = `translateX(${currentPosition}px)`;
+                    moveToSlide(0);
                 }
             }, 5000);
         }
@@ -97,6 +94,9 @@ document.addEventListener('DOMContentLoaded', function() {
             clearInterval(autoScrollInterval);
             startAutoScroll();
         }
+        
+        // Initialize the gallery
+        updateGallery();
         
         // Start auto-scroll initially
         startAutoScroll();
@@ -117,17 +117,23 @@ document.addEventListener('DOMContentLoaded', function() {
             clearInterval(autoScrollInterval);
             
             resizeTimer = setTimeout(() => {
-                // Recalculate dimensions
-                slideWidth = calculateSlideWidth();
-                maxPosition = -((slides.length / 2 - slidesToShow) * slideWidth);
+                // Store the current slide before updating
+                const oldCurrentSlide = currentSlide;
                 
-                // Reset position if needed
-                if (currentPosition < maxPosition) {
-                    currentPosition = maxPosition;
+                // Update the gallery
+                updateGallery();
+                
+                // Adjust current slide if needed after resize
+                const maxSlideIndex = Math.max(0, slides.length - slidesToShow);
+                if (oldCurrentSlide > maxSlideIndex) {
+                    currentSlide = maxSlideIndex;
                 }
                 
-                track.style.transform = `translateX(${currentPosition}px)`;
-                resetAutoScroll();
+                // Move to the correct slide
+                moveToSlide(currentSlide);
+                
+                // Restart auto-scroll
+                startAutoScroll();
             }, 250);
         });
     });
