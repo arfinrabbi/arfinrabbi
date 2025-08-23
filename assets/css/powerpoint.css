@@ -420,7 +420,7 @@ footer {
 gallary
 ******************************************************************************************************************************/
 
-.gallery-section {
+.image-gallery-section {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 15px;
     padding: 25px;
@@ -428,31 +428,31 @@ gallary
     margin-bottom: 40px;
 }
 
-.gallery-title {
+.gallery-heading {
     text-align: center;
     color: #333;
     margin-bottom: 20px;
     font-size: 1.8rem;
 }
 
-.gallery {
+.image-gallery {
     position: relative;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.gallery-track {
+.gallery-slider {
     display: flex;
     transition: transform 0.5s ease-in-out;
 }
 
-.gallery-item {
+.gallery-slide {
     flex: 0 0 calc(100% / 3);
     padding: 10px;
 }
 
-.gallery-image {
+.gallery-img {
     width: 100%;
     height: 200px;
     object-fit: cover;
@@ -461,12 +461,12 @@ gallary
     cursor: pointer;
 }
 
-.gallery-image:hover {
+.gallery-img:hover {
     transform: scale(1.03);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-.nav-btn {
+.gallery-nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -484,45 +484,45 @@ gallary
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.nav-btn:hover {
+.gallery-nav:hover {
     background: rgba(255, 255, 255, 0.9);
     transform: translateY(-50%) scale(1.1);
 }
 
-.nav-btn i {
+.gallery-nav i {
     font-size: 24px;
     color: #333;
 }
 
-.prev-btn {
+.gallery-prev {
     left: 15px;
 }
 
-.next-btn {
+.gallery-next {
     right: 15px;
 }
 
 @media (max-width: 900px) {
-    .gallery-item {
+    .gallery-slide {
         flex: 0 0 50%;
     }
 }
 
 @media (max-width: 600px) {
-    .gallery-item {
+    .gallery-slide {
         flex: 0 0 100%;
     }
     
-    .gallery-title {
+    .gallery-heading {
         font-size: 1.5rem;
     }
     
-    .nav-btn {
+    .gallery-nav {
         width: 40px;
         height: 40px;
     }
     
-    .nav-btn i {
+    .gallery-nav i {
         font-size: 18px;
     }
 }
