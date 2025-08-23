@@ -15,10 +15,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function initializeGallery(galleryId) {
         const gallery = document.getElementById(galleryId);
-        const galleryTrack = gallery.querySelector('.gallery-track');
-        const galleryItems = gallery.querySelectorAll('.gallery-item');
-        const prevBtn = gallery.querySelector('.prev-btn');
-        const nextBtn = gallery.querySelector('.next-btn');
+        const gallerySlider = gallery.querySelector('.gallery-slider');
+        const gallerySlides = gallery.querySelectorAll('.gallery-slide');
+        const prevBtn = gallery.querySelector('.gallery-prev');
+        const nextBtn = gallery.querySelector('.gallery-next');
         
         let currentIndex = 0;
         let autoPlayInterval;
@@ -36,13 +36,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const itemWidth = 100 / visibleItems;
             const translateX = -currentIndex * itemWidth;
             
-            galleryTrack.style.transform = `translateX(${translateX}%)`;
+            gallerySlider.style.transform = `translateX(${translateX}%)`;
         }
         
         // Navigate to next set of images
         function nextSlide() {
             const visibleItems = getVisibleItems();
-            if (currentIndex < galleryItems.length - visibleItems) {
+            if (currentIndex < gallerySlides.length - visibleItems) {
                 currentIndex++;
             } else {
                 currentIndex = 0; // Loop back to start
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentIndex--;
             } else {
                 const visibleItems = getVisibleItems();
-                currentIndex = galleryItems.length - visibleItems; // Loop to end
+                currentIndex = gallerySlides.length - visibleItems; // Loop to end
             }
             updateGallery();
         }
