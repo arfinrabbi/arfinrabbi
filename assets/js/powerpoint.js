@@ -17,19 +17,26 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentIndex = 0;
     let itemsToShow = 3;
     let autoPlayInterval;
-    
-    // Create dots based on number of items
-    for (let i = 0; i <= items.length - itemsToShow; i++) {
-        const dot = document.createElement('div');
-        dot.classList.add('dot');
-        if (i === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => {
-            goToSlide(i);
-        });
-        dotsContainer.appendChild(dot);
+    let dots; // Will be defined after creating dots
+
+    // Function to create dots
+    function createDots() {
+        dotsContainer.innerHTML = '';
+        const dotsCount = Math.max(1, items.length - itemsToShow + 1);
+        
+        for (let i = 0; i < dotsCount; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === currentIndex) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                goToSlide(i);
+            });
+            dotsContainer.appendChild(dot);
+        }
+        
+        // Update the dots variable after creating new dots
+        dots = document.querySelectorAll('.dot');
     }
-    
-    const dots = document.querySelectorAll('.dot');
     
     // Function to update carousel position
     function updateCarousel() {
@@ -37,27 +44,34 @@ document.addEventListener('DOMContentLoaded', function() {
         const offset = -currentIndex * itemWidth;
         carousel.style.transform = `translateX(${offset}%)`;
         
-        // Update active dot
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentIndex);
-        });
+        // Update active dot if dots exist
+        if (dots && dots.length) {
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
         
         // Add animation to the incoming slide
         items.forEach((item, index) => {
             if (index >= currentIndex && index < currentIndex + itemsToShow) {
-                item.querySelector('img').classList.add('slide-in');
-                setTimeout(() => {
-                    item.querySelector('img').classList.remove('slide-in');
-                }, 500);
+                const img = item.querySelector('img');
+                if (img) {
+                    img.classList.add('slide-in');
+                    setTimeout(() => {
+                        img.classList.remove('slide-in');
+                    }, 500);
+                }
             }
         });
     }
     
     // Function to go to a specific slide
     function goToSlide(index) {
+        const maxIndex = Math.max(0, items.length - itemsToShow);
+        
         if (index < 0) {
-            index = items.length - itemsToShow;
-        } else if (index > items.length - itemsToShow) {
+            index = maxIndex;
+        } else if (index > maxIndex) {
             index = 0;
         }
         
@@ -72,7 +86,8 @@ document.addEventListener('DOMContentLoaded', function() {
         let nextIndex = currentIndex + 1;
         
         // If we're at the end, loop back to the beginning
-        if (nextIndex > items.length - itemsToShow) {
+        const maxIndex = Math.max(0, items.length - itemsToShow);
+        if (nextIndex > maxIndex) {
             nextIndex = 0;
         }
         
@@ -85,8 +100,9 @@ document.addEventListener('DOMContentLoaded', function() {
         let prevIndex = currentIndex - 1;
         
         // If we're at the beginning, loop to the end
+        const maxIndex = Math.max(0, items.length - itemsToShow);
         if (prevIndex < 0) {
-            prevIndex = items.length - itemsToShow;
+            prevIndex = maxIndex;
         }
         
         goToSlide(prevIndex);
@@ -125,6 +141,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Responsive adjustments
     function handleResize() {
+        const oldItemsToShow = itemsToShow;
+        
         if (window.innerWidth < 900) {
             itemsToShow = 2;
         } else {
@@ -135,27 +153,22 @@ document.addEventListener('DOMContentLoaded', function() {
             itemsToShow = 1;
         }
         
-        // Recreate dots for new itemsToShow value
-        dotsContainer.innerHTML = '';
-        for (let i = 0; i <= items.length - itemsToShow; i++) {
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
-            if (i === currentIndex) dot.classList.add('active');
-            dot.addEventListener('click', () => {
-                goToSlide(i);
-            });
-            dotsContainer.appendChild(dot);
+        // Only recreate dots if itemsToShow has changed
+        if (oldItemsToShow !== itemsToShow) {
+            createDots();
+            
+            // Adjust currentIndex if it's out of bounds
+            const maxIndex = Math.max(0, items.length - itemsToShow);
+            if (currentIndex > maxIndex) {
+                currentIndex = maxIndex;
+            }
+            
+            updateCarousel();
         }
-        
-        // Adjust currentIndex if it's out of bounds
-        if (currentIndex > items.length - itemsToShow) {
-            currentIndex = Math.max(0, items.length - itemsToShow);
-        }
-        
-        updateCarousel();
     }
     
     // Initialize carousel
+    createDots(); // Create initial dots
     handleResize(); // Set initial itemsToShow
     updateCarousel();
     startAutoPlay();
