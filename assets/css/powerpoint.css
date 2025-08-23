@@ -445,6 +445,7 @@ gallary
 .gallery-slider {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    will-change: transform; /* Performance optimization */
 }
 
 .gallery-slide {
@@ -459,6 +460,8 @@ gallary
     border-radius: 8px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    /* Prevent layout shifts */
+    background-color: #f0f0f0;
 }
 
 .gallery-img:hover {
@@ -500,6 +503,16 @@ gallary
 
 .gallery-next {
     right: 15px;
+}
+
+/* Loading state */
+.gallery-img[loading] {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-img.loaded {
+    opacity: 1;
 }
 
 @media (max-width: 900px) {
