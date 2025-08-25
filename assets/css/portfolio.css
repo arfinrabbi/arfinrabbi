@@ -69,62 +69,7 @@ header h1 {
     margin-top: 2rem;
 }
 
-/* Alternating Portfolio Items */
-.portfolio-item {
-    display: flex;
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-}
 
-/* Odd items (1st, 3rd, 5th) - image left (45%), text right (55%) */
-.portfolio-item:nth-child(odd) {
-    flex-direction: row;
-}
-
-/* Even items (2nd, 4th, 6th) - image right (45%), text left (55%) */
-.portfolio-item:nth-child(even) {
-    flex-direction: row-reverse;
-}
-
-.project-image-container {
-    width: 55%;
-    padding: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #f5f5f5;
-}
-
-.project-image {
-    width: 100%;
-    height: auto;
-    max-height: 400px;
-    object-fit: contain;
-    border-radius: 4px;
-}
-
-.project-info {
-    width: 45%;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.project-info h3 {
-    margin-top: 0;
-    color: #212529;
-    font-size: 1.5rem;
-}
-
-.project-info p {
-    color: #6c757d;
-    margin-bottom: 0;
-    line-height: 1.6;
-}
 
 /* Hover Effects */
 .portfolio-item:hover {
@@ -561,9 +506,44 @@ header {
          website button
 ********************************************************************************************/
 
+.portfolio-item {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+.project-image-container {
+    position: relative;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    text-align: center;
+    border-bottom: 1px solid #eaeaea;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+.project-image:hover {
+    transform: scale(1.02);
+}
+
 .button-container {
     margin-top: 20px;
     text-align: center;
+    width: 100%;
 }
 
 .project-button {
@@ -609,6 +589,15 @@ header {
     font-size: 17px;
     line-height: 1.7;
 }
+
+@media (max-width: 768px) {
+    .project-info {
+        padding: 20px;
+    }
+    
+    .project-info h3 {
+        font-size: 24px;
+    }
     
     .project-button {
         padding: 12px 24px;
