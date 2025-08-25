@@ -1,0 +1,591 @@
+/**********************************************************************************************
+Website Portfolio
+*************************************************************************************************/
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #0F0F1B;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.nav-btn {
+    background-color: #495057;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: #6c757d;
+    transform: translateY(-2px);
+}
+
+.nav-btn.active {
+    background-color: #0d6efd;
+    font-weight: bold;
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Alternating Portfolio Items */
+.portfolio-item {
+    display: flex;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+/* Odd items (1st, 3rd, 5th) - image left (45%), text right (55%) */
+.portfolio-item:nth-child(odd) {
+    flex-direction: row;
+}
+
+/* Even items (2nd, 4th, 6th) - image right (45%), text left (55%) */
+.portfolio-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.project-image-container {
+    width: 55%;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5;
+    position: relative;
+}
+
+.project-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+}
+
+.button-container {
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+}
+
+.project-button {
+    display: inline-block;
+    background: linear-gradient(90deg, #053eff 0%, #0066ff 100%);
+    color: white;
+    padding: 0.8rem 1.8rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(5, 62, 255, 0.3);
+    border: none;
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+}
+
+.project-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(5, 62, 255, 0.4);
+}
+
+.project-info {
+    width: 45%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.project-info h3 {
+    margin-top: 0;
+    color: #212529;
+    font-size: 1.5rem;
+}
+
+.project-info p {
+    color: #6c757d;
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+/* Hover Effects */
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #0F0F1B;
+    color: white;
+    margin-top: 2rem;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, #0F0F1B 0%, #262640 100%);
+    color: white;
+    padding: 1.5rem 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.portfolio-title {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.portfolio-title:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+
+.portfolio-title h1 {
+    font-family: 'Philosopher', sans-serif;
+    font-size: 2.5rem;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: linear-gradient(to right, #ffffff, #f8f9fa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.portfolio-subtitle {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+    color: rgba(255,255,255,0.8);
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.nav-btn {
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.4rem;
+    border-radius: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.nav-btn:hover {
+    background-color: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.nav-btn.active {
+    background-color: #0d6efd;
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+}
+
+/*****************************************************************************************
+         Behance Section Styles 
+********************************************************************************************/
+.behance-section {
+    text-align: center;
+    margin: 5rem 0 3rem;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, #7e69b5 0%, #a793db 100%);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 15px 35px rgba(126, 105, 181, 0.3);
+}
+
+.more-projects {
+    font-size: 1.7rem;
+    color: #fff;
+    margin-bottom: 1.75rem;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.more-projects::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #ffffff, rgba(255,255,255,0.5));
+    border-radius: 4px;
+}
+
+.behance-button-container {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    margin-top: 1rem;
+}
+
+.behance-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: linear-gradient(90deg, #053eff 0%, #0066ff 100%);
+    color: white;
+    padding: 1.1rem 3rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 6px 20px rgba(5, 62, 255, 0.4);
+    position: absolute;
+    overflow: hidden;
+    border: none;
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    font-size: 1.1rem;
+    z-index: 1;
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+.behance-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(5, 62, 255, 0.5);
+}
+
+.behance-button:active {
+    transform: translateY(2px);
+}
+
+.button-hover-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #0066ff 0%, #00a1ff 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+    border-radius: 50px;
+}
+
+.behance-button:hover .button-hover-effect {
+    opacity: 1;
+}
+
+.behance-icon {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.3s ease;
+}
+
+.behance-button:hover .behance-icon {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.floating-dots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.floating-dots span {
+    position: absolute;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    animation: float 12s linear infinite;
+    filter: blur(1px);
+}
+
+/* Larger and more dots for better visibility */
+.floating-dots span:nth-child(1) {
+    width: 40px;
+    height: 40px;
+    top: 5%;
+    left: 5%;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.floating-dots span:nth-child(2) {
+    width: 25px;
+    height: 25px;
+    top: 75%;
+    left: 85%;
+    animation-delay: 1s;
+    animation-duration: 15s;
+}
+
+.floating-dots span:nth-child(3) {
+    width: 30px;
+    height: 30px;
+    top: 25%;
+    left: 90%;
+    animation-delay: 3s;
+    animation-duration: 20s;
+}
+
+.floating-dots span:nth-child(4) {
+    width: 20px;
+    height: 20px;
+    top: 85%;
+    left: 10%;
+    animation-delay: 2s;
+    animation-duration: 16s;
+}
+
+.floating-dots span:nth-child(5) {
+    width: 15px;
+    height: 15px;
+    top: 55%;
+    left: 15%;
+    animation-delay: 4s;
+    animation-duration: 14s;
+}
+
+/* Additional dots */
+.floating-dots span:nth-child(6) {
+    width: 35px;
+    height: 35px;
+    top: 30%;
+    left: 30%;
+    animation-delay: 5s;
+    animation-duration: 22s;
+}
+
+.floating-dots span:nth-child(7) {
+    width: 18px;
+    height: 18px;
+    top: 65%;
+    left: 70%;
+    animation-delay: 6s;
+    animation-duration: 17s;
+}
+
+.floating-dots span:nth-child(8) {
+    width: 22px;
+    height: 22px;
+    top: 40%;
+    left: 60%;
+    animation-delay: 7s;
+    animation-duration: 19s;
+}
+
+.floating-dots span:nth-child(9) {
+    width: 12px;
+    height: 12px;
+    top: 20%;
+    left: 40%;
+    animation-delay: 8s;
+    animation-duration: 13s;
+}
+
+.floating-dots span:nth-child(10) {
+    width: 28px;
+    height: 28px;
+    top: 80%;
+    left: 50%;
+    animation-delay: 9s;
+    animation-duration: 21s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100px) rotate(0deg) scale(0.8);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .portfolio-item,
+    .portfolio-item:nth-child(odd),
+    .portfolio-item:nth-child(even) {
+        flex-direction: column;
+    }
+    
+    .project-image-container,
+    .project-info {
+        width: 100%;
+        padding: 1.5rem;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .nav-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .project-image {
+        margin-bottom: 1rem;
+    }
+    
+    .behance-section {
+        margin: 3rem 0 2rem;
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .more-projects {
+        font-size: 1.4rem;
+    }
+    
+    .behance-button {
+        padding: 1rem 2.5rem;
+        font-size: 1rem;
+    }
+    
+    .floating-dots span {
+        display: none;
+    }
+    
+    .floating-dots span:nth-child(1),
+    .floating-dots span:nth-child(2),
+    .floating-dots span:nth-child(3) {
+        display: block;
+    }
+}
+
+@media (min-width: 768px) {
+    .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .portfolio-title {
+        margin-bottom: 0;
+        text-align: left;
+    }
+    
+    .nav-buttons {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-title h1 {
+        font-size: 2rem;
+    }
+    
+    .portfolio-subtitle {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+    }
+    
+    .nav-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+    
+    .project-info {
+        padding: 1.5rem;
+    }
+    
+    .project-info h3 {
+        font-size: 1.25rem;
+    }
+    
+    .project-button {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
