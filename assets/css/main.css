@@ -4323,3 +4323,7 @@ Shop Section
 
 
 
+.sectionbox1 {
+    display: flex;
+    gap: 2em;
+}
