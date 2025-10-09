@@ -1,84 +1,73 @@
-// Simple smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+// Smooth scrolling for navigation links
+document.querySelectorAll('.nav-links a').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
     });
 });
 
-// Add scroll effect to navigation
-window.addEventListener('scroll', function() {
-    const nav = document.querySelector('nav');
-    if (window.scrollY > 50) {
-        nav.style.background = 'rgba(42, 42, 60, 0.95)';
-        nav.style.backdropFilter = 'blur(10px)';
-    } else {
-        nav.style.background = 'transparent';
-        nav.style.backdropFilter = 'none';
+// Contact form modal functionality
+const modal = document.getElementById('contact-modal');
+const getStartedBtns = document.querySelectorAll('.get-started-btn');
+const closeModal = document.querySelector('.close-modal');
+const contactForm = document.getElementById('contact-form');
+
+// Open modal when clicking get started buttons
+getStartedBtns.forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        modal.style.display = 'flex';
+    });
+});
+
+// Close modal when clicking X
+closeModal.addEventListener('click', function() {
+    modal.style.display = 'none';
+});
+
+// Close modal when clicking outside the modal content
+window.addEventListener('click', function(e) {
+    if (e.target === modal) {
+        modal.style.display = 'none';
     }
 });
 
-// Template interaction
-document.querySelectorAll('.template-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-10px)';
-    });
+// Handle form submission
+contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
     
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0)';
-    });
-});
-
-// Buy Now button interaction
-document.querySelectorAll('.btn-primary').forEach(button => {
-    button.addEventListener('click', function(e) {
-        if (this.textContent.includes('Buy Now')) {
-            e.preventDefault();
-            const templateName = this.closest('.template-card').querySelector('h3').textContent;
-            alert(`Thank you for your interest in ${templateName}! You will be redirected to the checkout page.`);
-            // In a real implementation, you would redirect to payment page
-        }
-    });
-});
-
-// Live Demo button interaction
-document.querySelectorAll('.btn-secondary').forEach(button => {
-    button.addEventListener('click', function(e) {
-        if (this.textContent.includes('Live Demo')) {
-            e.preventDefault();
-            const templateName = this.closest('.template-card').querySelector('h3').textContent;
-            alert(`Opening live demo for ${templateName} in a new tab.`);
-            // In a real implementation, you would open the demo URL
-        }
-    });
-});
-
-// Service package selection
-document.querySelectorAll('.service-card .btn-primary').forEach(button => {
-    button.addEventListener('click', function(e) {
-        e.preventDefault();
-        const serviceName = this.closest('.service-card').querySelector('h3').textContent;
-        const servicePrice = this.closest('.service-card').querySelector('.price').textContent;
-        
-        alert(`You've selected: ${serviceName}\nPrice: ${servicePrice}\n\nA contact form will open to discuss your project requirements.`);
-        // In a real implementation, you would open a contact form/modal
-    });
-});
-
-// Add loading animation for page elements
-document.addEventListener('DOMContentLoaded', function() {
-    const elements = document.querySelectorAll('.template-card, .feature-card, .service-card');
+    // Get form data
+    const formData = new FormData(contactForm);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const service = formData.get('service');
+    const message = formData.get('message');
     
-    elements.forEach((element, index) => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        
-        setTimeout(() => {
-            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        }, index * 200);
-    });
+    // In a real application, you would send this data to a server
+    // For this example, we'll just show an alert
+    alert(`Thank you, ${name}! Your message has been received. I'll get back to you at ${email} regarding ${service}.`);
+    
+    // Reset form and close modal
+    contactForm.reset();
+    modal.style.display = 'none';
+});
+
+// Minimal header scroll effect
+window.addEventListener('scroll', function() {
+    const minimalHeader = document.querySelector('.minimal-header');
+    if (window.scrollY > 100) {
+        minimalHeader.style.padding = '10px 0';
+        minimalHeader.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+    } else {
+        minimalHeader.style.padding = '15px 0';
+        minimalHeader.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+    }
 });
