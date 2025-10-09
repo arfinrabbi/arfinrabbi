@@ -3,24 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio showcasing my logo design projects">
-    <title>Arfin Portfolio | Web Templates</title>
-    <link rel="stylesheet" href="assets/css/shop.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <title>Arfin Portfolio | Design Studio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="css/shop.css">
 </head>
 <body>
-
-    <!-- Header -->
-    <header>
-        <div class="header-content">
-            <a href="https://arfinrabbi.github.io/arfinrabbi/" class="portfolio-title">
-                <h1>Arfin Portfolio</h1>
-                <span class="portfolio-subtitle">Design Studio</span>
-            </a>
+    <!-- Minimal Header -->
+    <div class="minimal-header">
+        <div class="nav-container">
+            <div class="logo-container">
+                <a href="https://arfinrabbi.github.io/arfinrabbi/" class="logo">Arfin Portfolio</a>
+                <div class="logo-tag">DESIGN STUDIO</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#templates">Templates</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#services">Services</a></li>
+            </ul>
         </div>
-    </header>
+    </div>
 
     <!-- Templates Section -->
     <section class="templates-section" id="templates">
@@ -175,7 +177,7 @@
                         <li><i class="fas fa-check"></i> 1-week support</li>
                     </ul>
                     <div class="price">$199 <span>/ one-time</span></div>
-                    <a href="#" class="btn btn-primary">Get Started</a>
+                    <a href="#" class="btn btn-primary get-started-btn">Get Started</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -191,7 +193,7 @@
                         <li><i class="fas fa-check"></i> 2-week support</li>
                     </ul>
                     <div class="price">$349 <span>/ one-time</span></div>
-                    <a href="#" class="btn btn-primary">Get Started</a>
+                    <a href="#" class="btn btn-primary get-started-btn">Get Started</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -207,16 +209,43 @@
                         <li><i class="fas fa-check"></i> 1-month support</li>
                     </ul>
                     <div class="price">$497 <span>/ one-time</span></div>
-                    <a href="#" class="btn btn-primary">Get Started</a>
+                    <a href="#" class="btn btn-primary get-started-btn">Get Started</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; <span id="current-year">2023</span> Arfin Portfolio. All rights reserved.</p>
-    </footer>
+    <!-- Contact Form Modal -->
+    <div class="modal" id="contact-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Get In Touch</h2>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Service Interested In</label>
+                    <select id="service" name="service">
+                        <option value="Template Implementation">Template Implementation</option>
+                        <option value="Template Customization">Template Customization</option>
+                        <option value="Complete Package">Complete Package</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
 
     <script src="js/shop.js"></script>
 </body>
