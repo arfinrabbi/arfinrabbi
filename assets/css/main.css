@@ -4312,7 +4312,7 @@ Shop Section
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .split.style1 {
+    .sectionbox1 {
         flex-direction: column;
     }
     
@@ -4320,7 +4320,6 @@ Shop Section
         margin-top: 2rem;
     }
 }
-
 
 
 .sectionbox1 {
@@ -4331,3 +4330,4 @@ Shop Section
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
