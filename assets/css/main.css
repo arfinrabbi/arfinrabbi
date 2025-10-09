@@ -4282,11 +4282,6 @@ Shop Section
     align-items: center;
 }
 
-.button.large {
-    padding: 0.8rem 0.8rem;
-    font-size: 0.8rem;
-}
-
 .shop-image {
     display: flex;
     align-items: center;
@@ -4330,4 +4325,5 @@ Shop Section
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 
