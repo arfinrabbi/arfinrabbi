@@ -4283,8 +4283,8 @@ Shop Section
 }
 
 .button.large {
-    padding: 0.8rem 1.8rem;
-    font-size: 1.1rem;
+    padding: 0.8rem 0.8rem;
+    font-size: 0.8rem;
 }
 
 .shop-image {
@@ -4320,4 +4320,5 @@ Shop Section
         margin-top: 2rem;
     }
 }
+
 
