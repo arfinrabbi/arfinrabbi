@@ -4278,7 +4278,7 @@ Shop Section
 **********************************************************************************************/
 .sectionbox1 {
     display: flex;
-    gap: 4em 2em;
+    gap: 2em 2em;
 	padding: 2em;
     background: transparent;
     border-radius: 12px;
@@ -4323,3 +4323,4 @@ Shop Section
         margin-top: 2rem;
     }
 }
+
