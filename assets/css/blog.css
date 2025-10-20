@@ -354,4 +354,209 @@ header {
         border-radius: var(--border-radius);
         padding: 12px;
     }
+
+}
+
+
+/* ===================================================================================
+   Contact Section Layout
+===================================================================================== */
+.split.style1 {
+    display: flex;
+    gap: 2em;
+    align-items: stretch; /* makes both columns same height */
+}
+
+/* Left Column - Form (Wider) */
+.split.style1 > :first-child {
+    width: 70%;
+    padding: 2em;
+    background: transparent;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Right Column - Info & Social (Centered Vertically) */
+.split.style1 > :last-child {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* centers vertically */
+    align-items: center;
+    text-align: center;
+    padding: 2em;
+    background: transparent;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ================================
+   Contact Form
+================================ */
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+/* Grid for Fields */
+.fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.field {
+    position: relative;
+    width: 100%;
+}
+
+.field.half {
+    width: calc(50% - 0.75rem);
+}
+
+/* Inputs & Textarea with thin border */
+#contactForm input,
+#contactForm textarea {
+    width: 100%;
+    padding: 0.9em 1em;
+    font-size: 1em;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Floating Labels */
+#contactForm label {
+    position: absolute;
+    left: 1em;
+    top: 1em;
+    font-size: 0.95em;
+    color: rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+    transition: 0.3s ease all;
+}
+
+/* Move label up when typing/focusing */
+#contactForm input:focus + label,
+#contactForm input:not(:placeholder-shown) + label,
+#contactForm textarea:focus + label,
+#contactForm textarea:not(:placeholder-shown) + label {
+    top: -0.7em;
+    left: 0.8em;
+    font-size: 0.8em;
+    background: #0f0f1b; /* keeps text readable, matches bg */
+    padding: 0 0.3em;
+    color: #9d50bb;
+}
+
+/* Focus Effect */
+#contactForm input:focus,
+#contactForm textarea:focus {
+    outline: none;
+    border-color: #9d50bb;
+    box-shadow: 0 0 6px rgba(157, 80, 187, 0.5);
+}
+
+/* Textarea */
+#contactForm textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ================================
+   Submit Button (Fixed)
+================================ */
+#contactForm .actions {
+    margin-top: 0.5em;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+#contactForm .button.submit {
+    background: linear-gradient(135deg, #6e48aa, #9d50bb);
+    color: #fff;
+    border: none;
+    padding: 0.5em 1.8em;
+    font-size: 0.8em;
+    font-weight: 400;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+#contactForm .button.submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(110, 72, 170, 0.4);
+}
+
+/* ================================
+   Right Column (Calendly + Social)
+================================ */
+.connect-heading {
+    font-size: 1em;
+    margin: 1.5em 0;
+    color: rgba(255, 255, 255, 0.9);
+    width: 100%;
+}
+
+.calendly-btn {
+    background: linear-gradient(135deg, #6e48aa, #9d50bb);
+    color: #fff;
+    border: none;
+    padding: 0.5em 1.8em;
+    font-size: 0.8em;
+    font-weight: 400;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.social-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* ================================
+   Responsive Design
+================================ */
+@media (max-width: 768px) {
+    .split.style1 {
+        flex-direction: column;
+    }
+    
+    .split.style1 > :first-child,
+    .split.style1 > :last-child {
+        width: 100%;
+    }
+    
+    .split.style1 > :first-child {
+        margin-bottom: 1.5em;
+    }
+    
+    .field.half {
+        width: 100%;
+    }
+    
+    .fields {
+        gap: 1rem;
+    }
 }
