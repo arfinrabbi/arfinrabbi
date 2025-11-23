@@ -10,9 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Update navigation dots based on scroll position
     function updateNavigation() {
-        const scrollLeft = container.scrollLeft;
-        const sectionWidth = window.innerWidth;
-        const currentSection = Math.round(scrollLeft / sectionWidth);
+        const scrollTop = container.scrollTop;
+        const sectionHeight = window.innerHeight;
+        const currentSection = Math.round(scrollTop / sectionHeight);
         
         navDots.forEach((dot, index) => {
             if (index === currentSection) {
@@ -28,9 +28,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isScrolling) return;
         
         isScrolling = true;
-        const sectionWidth = window.innerWidth;
+        const sectionHeight = window.innerHeight;
         container.scrollTo({
-            left: sectionWidth * index,
+            top: sectionHeight * index,
             behavior: 'smooth'
         });
         
@@ -39,28 +39,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 500);
     }
     
-    // Handle mouse wheel scrolling - FIXED VERSION
+    // Handle mouse wheel scrolling
     function handleWheelScroll(e) {
-        // Prevent default vertical scrolling
-        e.preventDefault();
+        // Allow default vertical scrolling
+        // We don't prevent default for vertical scrolling
         
         // Clear any existing timeout
         clearTimeout(scrollTimeout);
         
-        // Set a timeout to prevent rapid scrolling
+        // Set a timeout to update navigation after scroll
         scrollTimeout = setTimeout(() => {
-            const delta = Math.sign(e.deltaY);
-            const sectionWidth = window.innerWidth;
-            const currentSection = Math.round(container.scrollLeft / sectionWidth);
-            const maxSection = sections.length - 1;
-            
-            if (delta > 0 && currentSection < maxSection) {
-                // Scroll right (next section)
-                scrollToSection(currentSection + 1);
-            } else if (delta < 0 && currentSection > 0) {
-                // Scroll left (previous section)
-                scrollToSection(currentSection - 1);
-            }
+            updateNavigation();
         }, 100);
     }
     
@@ -77,50 +66,52 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Handle keyboard navigation
     document.addEventListener('keydown', function(e) {
-        const sectionWidth = window.innerWidth;
-        const currentSection = Math.round(container.scrollLeft / sectionWidth);
+        const sectionHeight = window.innerHeight;
+        const currentSection = Math.round(container.scrollTop / sectionHeight);
         
-        if (e.key === 'ArrowRight' && currentSection < sections.length - 1) {
+        if (e.key === 'ArrowDown' && currentSection < sections.length - 1) {
             scrollToSection(currentSection + 1);
-        } else if (e.key === 'ArrowLeft' && currentSection > 0) {
+        } else if (e.key === 'ArrowUp' && currentSection > 0) {
             scrollToSection(currentSection - 1);
+        } else if (e.key === ' ' || e.key === 'PageDown') {
+            e.preventDefault();
+            if (currentSection < sections.length - 1) {
+                scrollToSection(currentSection + 1);
+            }
+        } else if (e.key === 'PageUp') {
+            e.preventDefault();
+            if (currentSection > 0) {
+                scrollToSection(currentSection - 1);
+            }
         }
     });
     
-    // Add wheel event listener to the document - FIXED
-    // Use both document and container for better compatibility
-    document.addEventListener('wheel', handleWheelScroll, { passive: false });
-    container.addEventListener('wheel', handleWheelScroll, { passive: false });
+    // Add wheel event listener
+    container.addEventListener('wheel', handleWheelScroll, { passive: true });
     
-    // Alternative approach for touch devices
-    let startX = 0;
+    // Touch support for mobile devices
     let startY = 0;
     
     container.addEventListener('touchstart', function(e) {
-        startX = e.touches[0].clientX;
         startY = e.touches[0].clientY;
     }, { passive: true });
     
     container.addEventListener('touchend', function(e) {
         if (!e.changedTouches[0]) return;
         
-        const endX = e.changedTouches[0].clientX;
         const endY = e.changedTouches[0].clientY;
-        
-        const diffX = startX - endX;
         const diffY = startY - endY;
         
-        // Only handle horizontal swipes (ignore vertical swipes)
-        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
-            const sectionWidth = window.innerWidth;
-            const currentSection = Math.round(container.scrollLeft / sectionWidth);
-            const maxSection = sections.length - 1;
+        // Only handle significant vertical swipes
+        if (Math.abs(diffY) > 50) {
+            const sectionHeight = window.innerHeight;
+            const currentSection = Math.round(container.scrollTop / sectionHeight);
             
-            if (diffX > 0 && currentSection < maxSection) {
-                // Swipe left - go to next section
+            if (diffY > 0 && currentSection < sections.length - 1) {
+                // Swipe up - go to next section
                 scrollToSection(currentSection + 1);
-            } else if (diffX < 0 && currentSection > 0) {
-                // Swipe right - go to previous section
+            } else if (diffY < 0 && currentSection > 0) {
+                // Swipe down - go to previous section
                 scrollToSection(currentSection - 1);
             }
         }
@@ -128,8 +119,4 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize navigation
     updateNavigation();
-    
-    // Force horizontal scrolling only
-    container.style.overflowX = 'auto';
-    container.style.overflowY = 'hidden';
 });
