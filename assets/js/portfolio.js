@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 500);
     }
     
-    // Handle mouse wheel scrolling
+    // Handle mouse wheel scrolling - FIXED VERSION
     function handleWheelScroll(e) {
         // Prevent default vertical scrolling
         e.preventDefault();
@@ -55,10 +55,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const maxSection = sections.length - 1;
             
             if (delta > 0 && currentSection < maxSection) {
-                // Scroll right
+                // Scroll right (next section)
                 scrollToSection(currentSection + 1);
             } else if (delta < 0 && currentSection > 0) {
-                // Scroll left
+                // Scroll left (previous section)
                 scrollToSection(currentSection - 1);
             }
         }, 100);
@@ -87,9 +87,49 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Add wheel event listener to the document
+    // Add wheel event listener to the document - FIXED
+    // Use both document and container for better compatibility
     document.addEventListener('wheel', handleWheelScroll, { passive: false });
+    container.addEventListener('wheel', handleWheelScroll, { passive: false });
+    
+    // Alternative approach for touch devices
+    let startX = 0;
+    let startY = 0;
+    
+    container.addEventListener('touchstart', function(e) {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+    }, { passive: true });
+    
+    container.addEventListener('touchend', function(e) {
+        if (!e.changedTouches[0]) return;
+        
+        const endX = e.changedTouches[0].clientX;
+        const endY = e.changedTouches[0].clientY;
+        
+        const diffX = startX - endX;
+        const diffY = startY - endY;
+        
+        // Only handle horizontal swipes (ignore vertical swipes)
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+            const sectionWidth = window.innerWidth;
+            const currentSection = Math.round(container.scrollLeft / sectionWidth);
+            const maxSection = sections.length - 1;
+            
+            if (diffX > 0 && currentSection < maxSection) {
+                // Swipe left - go to next section
+                scrollToSection(currentSection + 1);
+            } else if (diffX < 0 && currentSection > 0) {
+                // Swipe right - go to previous section
+                scrollToSection(currentSection - 1);
+            }
+        }
+    }, { passive: true });
     
     // Initialize navigation
     updateNavigation();
+    
+    // Force horizontal scrolling only
+    container.style.overflowX = 'auto';
+    container.style.overflowY = 'hidden';
 });
