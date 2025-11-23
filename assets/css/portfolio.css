@@ -7,7 +7,7 @@
 
 body {
     overflow-x: hidden;
-    overflow-y: hidden !important;
+    overflow-y: hidden;
     height: 100vh;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     color: #fff;
@@ -73,28 +73,25 @@ header {
     background: rgba(255, 255, 255, 0.1);
 }
 
+/* VERTICAL SCROLLING CONTAINER */
 .container {
-    width: 600vw;
-    height: 100vh;
-    display: flex;
+    width: 100vw;
+    height: 500vh; /* 5 sections * 100vh each */
     padding-top: 60px;
     scroll-behavior: smooth;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    scroll-snap-type: x mandatory;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 section {
     width: 100vw;
-    height: calc(100vh - 60px - 40px);
+    height: 100vh;
     padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
-    scroll-snap-align: start;
-    flex-shrink: 0;
 }
 
 .intro-section {
@@ -415,10 +412,11 @@ section {
 
 .navigation {
     position: fixed;
-    bottom: 50px;
-    left: 50%;
-    transform: translateX(-50%);
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
+    flex-direction: column;
     gap: 15px;
     z-index: 100;
 }
@@ -483,10 +481,6 @@ footer {
     .intro-section h2 {
         font-size: 2.5rem;
     }
-
-    .container {
-        width: 500vw;
-    }
     
     header {
         height: 80px;
@@ -496,7 +490,7 @@ footer {
         padding-top: 80px;
     }
     
-    section {
-        height: calc(100vh - 80px - 40px);
+    .navigation {
+        right: 15px;
     }
 }
