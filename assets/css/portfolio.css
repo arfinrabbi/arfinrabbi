@@ -188,10 +188,6 @@ section {
     font-weight: bold;
 }
 
-.logo-placeholder.cs-logo {
-    height: 60px; /* or whatever height you want */
-}
-
 .cs-logo {
     background: linear-gradient(45deg, #1a2a6c, #4a4a9c);
 }
