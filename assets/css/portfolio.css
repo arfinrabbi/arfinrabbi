@@ -188,29 +188,14 @@ section {
     font-weight: bold;
 }
 
+.logo-placeholder.cs-logo {
+    height: 60px; /* or whatever height you want */
+}
+
 .cs-logo {
     background: linear-gradient(45deg, #1a2a6c, #4a4a9c);
 }
 
-.bs-logo {
-    background: linear-gradient(45deg, #000, #333);
-}
-
-.st-logo {
-    background: linear-gradient(45deg, #b21f1f, #d64c4c);
-}
-
-.gdn-logo {
-    background: linear-gradient(45deg, #1d976c, #93f9b9);
-}
-
-.mst-logo {
-    background: linear-gradient(45deg, #614385, #516395);
-}
-
-.ca-logo {
-    background: linear-gradient(45deg, #0057ff, #0099ff);
-}
 
 .project-info {
     padding: 2.5rem;
