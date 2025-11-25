@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateNavigation() {
         const scrollTop = container.scrollTop;
         const sectionHeight = window.innerHeight;
-        const currentSection = Math.round(scrollTop / sectionHeight);
+        const currentSection = Math.floor(scrollTop / sectionHeight);
         
         navDots.forEach((dot, index) => {
             if (index === currentSection) {
@@ -36,13 +36,12 @@ document.addEventListener('DOMContentLoaded', function() {
         
         setTimeout(() => {
             isScrolling = false;
-        }, 500);
+        }, 800);
     }
     
     // Handle mouse wheel scrolling
     function handleWheelScroll(e) {
-        // Allow default vertical scrolling
-        // We don't prevent default for vertical scrolling
+        if (isScrolling) return;
         
         // Clear any existing timeout
         clearTimeout(scrollTimeout);
@@ -66,12 +65,16 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Handle keyboard navigation
     document.addEventListener('keydown', function(e) {
+        if (isScrolling) return;
+        
         const sectionHeight = window.innerHeight;
-        const currentSection = Math.round(container.scrollTop / sectionHeight);
+        const currentSection = Math.floor(container.scrollTop / sectionHeight);
         
         if (e.key === 'ArrowDown' && currentSection < sections.length - 1) {
+            e.preventDefault();
             scrollToSection(currentSection + 1);
         } else if (e.key === 'ArrowUp' && currentSection > 0) {
+            e.preventDefault();
             scrollToSection(currentSection - 1);
         } else if (e.key === ' ' || e.key === 'PageDown') {
             e.preventDefault();
@@ -91,13 +94,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Touch support for mobile devices
     let startY = 0;
+    let isTouching = false;
     
     container.addEventListener('touchstart', function(e) {
         startY = e.touches[0].clientY;
+        isTouching = true;
     }, { passive: true });
     
     container.addEventListener('touchend', function(e) {
-        if (!e.changedTouches[0]) return;
+        if (!e.changedTouches[0] || !isTouching) return;
         
         const endY = e.changedTouches[0].clientY;
         const diffY = startY - endY;
@@ -105,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Only handle significant vertical swipes
         if (Math.abs(diffY) > 50) {
             const sectionHeight = window.innerHeight;
-            const currentSection = Math.round(container.scrollTop / sectionHeight);
+            const currentSection = Math.floor(container.scrollTop / sectionHeight);
             
             if (diffY > 0 && currentSection < sections.length - 1) {
                 // Swipe up - go to next section
@@ -115,8 +120,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 scrollToSection(currentSection - 1);
             }
         }
+        isTouching = false;
     }, { passive: true });
     
     // Initialize navigation
     updateNavigation();
+    
+    // Force initial scroll position
+    container.scrollTop = 0;
 });
